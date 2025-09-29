@@ -18,11 +18,9 @@ export const SectionOne = () => {
             <CarouselItem id="3">3</CarouselItem>
           </CarouselContent>
         </div>
-        {id===1 ? (
+        
           <CarouselPrevious className="absolute left-5" />
-        ) : (
-          ""
-        )}
+       
         <CarouselNext className="absolute right-1" />
       </Carousel>
     </div>

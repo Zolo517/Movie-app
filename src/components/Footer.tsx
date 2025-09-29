@@ -79,7 +79,7 @@ export const Footer = () => {
         <div>
           <p className="text-[#FAFAFA] ">Follow us</p>
           <div className="flex gap-3 mt-3">
-            <a href="" className="text-[#FAFAFA] ">Facebook</a>
+            <a href="http://localhost:3000/facebook" className="text-[#FAFAFA] ">Facebook</a>
             <a href="" className="text-[#FAFAFA] ">Instagram</a>
             <a href="" className="text-[#FAFAFA] ">Twitter</a>
             <a href="" className="text-[#FAFAFA] ">Youtube</a>

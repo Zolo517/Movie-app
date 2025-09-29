@@ -9,28 +9,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function Home() {
-  return (
-    <div className="">
-      <Navbar></Navbar>
-      <div className="mt-6 h-150 ">
-        <Carousel>
-          <div className="relative">
-            <CarouselContent>
-              <CarouselItem>
-                <div>
-                  <img src="/wicked.jpg" alt="" className="w-full h-150 " />
-                </div>
-              </CarouselItem>
+import { SectionOne } from "@/components/SectionOne";
 
-              <CarouselItem>2</CarouselItem>
-              <CarouselItem>3</CarouselItem>
-            </CarouselContent>
-          </div>
-          <CarouselPrevious className="absolute left-5" />
-          <CarouselNext className="absolute right-1" />
-        </Carousel>
-      </div>
+export default function Home() {
+  return  <div className="">
+      <Navbar></Navbar>
+     <SectionOne></SectionOne>
+
     </div>
-  );
+
 }

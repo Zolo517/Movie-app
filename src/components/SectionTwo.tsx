@@ -1,4 +1,5 @@
-import { MovieCard } from "./MovieCard";
+import { CardMovie } from "./CardMovie";
+
 
 export const SectionTwo = (props: { name: string }) => {
   const { name } = props;
@@ -29,7 +30,7 @@ export const SectionTwo = (props: { name: string }) => {
       <div className="flex flex-wrap gap-8">
         {movieNames.map((movieName, index) => {
           return (
-            <MovieCard key={index + Math.random()} movieName={movieName} />
+            <CardMovie key={index + Math.random()} movieName={movieName} />
           );
         })}
       </div>

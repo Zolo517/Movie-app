@@ -7,6 +7,8 @@ import {
 } from "./ui/carousel";
 
 export const SectionOne = () => {
+
+  
   return (
     <div className="mt-6 h-150 z-1">
       <Carousel

@@ -1,7 +1,6 @@
 import { Card, CardContent } from "./ui/card";
 
-export const MovieCard = (props: { movieName: number }) => {
-  const { movieName } = props;
+export const CardMovie = ({movieName}: { movieName: number }) => {
   return (
     <Card className="w-[230px] h-[439px] gap-1 overflow-hidden">
       <CardContent >

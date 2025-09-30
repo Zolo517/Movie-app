@@ -1,6 +1,7 @@
+import { cardContainers } from "@/lib/type";
 import { Card, CardContent } from "./ui/card";
 
-export const CardMovie = ({movieName}: { movieName: number }) => {
+export const CardMovie = ({movie}: { movieName: cardContainers }) => {
   return (
     <Card className="w-[230px] h-[439px] gap-1 overflow-hidden">
       <CardContent >

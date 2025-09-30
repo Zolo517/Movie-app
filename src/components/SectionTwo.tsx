@@ -1,13 +1,15 @@
+
+import { cardContainers } from "@/lib/type";
 import { CardMovie } from "./CardMovie";
 
 
-export const SectionTwo = (props: { name: string }) => {
-  const { name } = props;
-  const movieNames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+export const SectionTwo = ({cardNames}: {  cardNames:cardContainers[] }) => {
+
+
   return (
     <div className="px-20 w-full gap-8 mt-[52px]">
       <div className="flex justify-between items-center">
-        <h3 className="text-2xl font-semibold">{name}</h3>
+        <h3 className="text-2xl font-semibold">{cardNames.category}</h3>
         <button className="flex p-4 gap-2 items-center">
           <p className="text-[14px] font-medium">See more</p>
           <svg
@@ -28,9 +30,9 @@ export const SectionTwo = (props: { name: string }) => {
       </div>
 
       <div className="flex flex-wrap gap-8">
-        {movieNames.map((movieName, index) => {
+        {movies.map((movie, index) => {
           return (
-            <CardMovie key={index + Math.random()} movieName={movieName} />
+            <CardMovie key={index + Math.random()} movie={movie} />
           );
         })}
       </div>

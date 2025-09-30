@@ -11,7 +11,7 @@ import { Button } from "./ui/button";
 import { Logo } from "./Logo";
 import { Genres } from "./Genres";
 
-export const Navbar = () => {
+export const Navbar = ({genres}:{genres:string[]}) => {
  
 
   return (
@@ -19,7 +19,7 @@ export const Navbar = () => {
       <div className="flex justify-between items-center h-9 ">
         <Logo color="#4338CA" />
         <div className="flex gap-3">
-          <Genres />
+          <Genres genres={genres}/>
           <Input className="w-[379px] h-9" />
         </div>
         <Button variant={"outline"}>

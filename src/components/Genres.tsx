@@ -8,35 +8,8 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 
-export const Genres = () => {
-  const genres = [
-    "Action",
-    "Adventure",
-    "Animation",
-    "Biography",
-    "Comedy",
-    "Crime",
-    "Documentary",
-    "Drama",
-    "Family",
-    "Fantasy",
-    "Film-Noir",
-    "Game-show",
-    "History",
-    "Horror",
-    "Music",
-    "Musical",
-    "Mystery",
-    "News",
-    "Reality-Tv",
-    "Romance",
-    "Sci-Fi",
-    "Short",
-    "Talk-Show",
-    "Thriller",
-    "War",
-    "Western",
-  ];
+export const Genres = ({genres}:{genres:string[]}) => {
+
   return (
     <DropdownMenu>
   
@@ -87,8 +60,8 @@ export const Genres = () => {
                   <path
                     d="M1 9L5 5L1 1"
                     stroke="#09090B"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>

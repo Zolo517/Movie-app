@@ -1,3 +1,5 @@
+import {carouselMovie } from "@/lib/type";
+import { MovieItem } from "./MovieItem";
 import {
   Carousel,
   CarouselContent,
@@ -6,23 +8,22 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 
-export const SectionOne = () => {
-
-  
+export const SectionOne = ({ movieItems }: { movieItems: carouselMovie[] }) => {
   return (
     <div className="mt-6 h-150 z-1">
-      <Carousel
-    
-      >
+      <Carousel>
         <div className="relative">
           <CarouselContent>
-            <CarouselItem
-              className="h-[600px] bg-[#06616a]"
-              id="1"
-            ></CarouselItem>
-
-            <CarouselItem className="bg-[#c889da]"></CarouselItem>
-            <CarouselItem className="bg-[#89dabe]"></CarouselItem>
+            {movieItems.map((movieItem, i) => {
+              return (
+                <CarouselItem key={i + Math.random()}>
+                  <MovieItem
+                    key={Math.random()}
+                    movieItem={movieItem}
+                  ></MovieItem>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
         </div>
 

@@ -1,6 +1,6 @@
 
 import { cardContainers } from "@/lib/type";
-import { CardMovie } from "./CardMovie";
+import { MovieCard } from "./MovieCard";
 
 
 export const SectionTwo = ({cardNames}: {  cardNames:cardContainers[] }) => {
@@ -32,7 +32,7 @@ export const SectionTwo = ({cardNames}: {  cardNames:cardContainers[] }) => {
       <div className="flex flex-wrap gap-8">
         {movies.map((movie, index) => {
           return (
-            <CardMovie key={index + Math.random()} movie={movie} />
+            <MovieCard key={index + Math.random()} movie={movie} />
           );
         })}
       </div>

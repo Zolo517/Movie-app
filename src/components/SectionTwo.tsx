@@ -1,15 +1,15 @@
 
-import { cardContainers } from "@/lib/type";
+import {  movieType } from "@/lib/type";
 import { MovieCard } from "./MovieCard";
 
 
-export const SectionTwo = ({cardNames}: {  cardNames:cardContainers[] }) => {
+export const SectionTwo = ({movies, title}: {title:string,  movies:movieType[] }) => {
 
 
   return (
     <div className="px-20 w-full gap-8 mt-[52px]">
       <div className="flex justify-between items-center">
-        <h3 className="text-2xl font-semibold">{cardNames.category}</h3>
+        <h3 className="text-2xl font-semibold">{title}</h3>
         <button className="flex p-4 gap-2 items-center">
           <p className="text-[14px] font-medium">See more</p>
           <svg

@@ -1,17 +1,21 @@
 export type carouselMovie = {
   image: string;
-  playing: string;
+  rating: number;
   name: string;
   desc: string;
 };
-export type movies = {
+export type movieType = {
   title: string;
   image: string;
-}
-export type cardContainers =[{
-  category : string;
-  movies:[{
-    title: string;
-    image: string;
-  }];
-}]
+  rating: number;
+};
+export type movieCategoryType = {
+  category: string;
+  movies: movieType[];
+};
+export type ratingType = {
+  rating: number;
+
+  large: string;
+  small: string;
+};

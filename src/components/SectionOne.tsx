@@ -1,5 +1,11 @@
-import {carouselMovie } from "@/lib/type";
+"use client"
+import * as React from "react"
+import Autoplay from "embla-carousel-autoplay"
+
+
+import { carouselMovie } from "@/lib/type";
 import { MovieItem } from "./MovieItem";
+
 import {
   Carousel,
   CarouselContent,
@@ -8,10 +14,18 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 
+
 export const SectionOne = ({ movieItems }: { movieItems: carouselMovie[] }) => {
+
   return (
     <div className="mt-6 h-150 z-1">
-      <Carousel>
+      <Carousel
+       plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+      >
         <div className="relative">
           <CarouselContent>
             {movieItems.map((movieItem, i) => {
@@ -34,3 +48,4 @@ export const SectionOne = ({ movieItems }: { movieItems: carouselMovie[] }) => {
     </div>
   );
 };
+   

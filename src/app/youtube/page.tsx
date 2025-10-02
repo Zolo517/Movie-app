@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
-import { Filter } from "@/components/Filter";
+import { Filter } from "@/app/youtube/_components/Filter";
 import { Menu } from "@/components/Menu";
-import { Videos, Shorts } from "@/components/VideosCard";
+import { Videos, Shorts } from "@/app/youtube/_components/VideosCard";
 
 const HomePageVideos = [
   {

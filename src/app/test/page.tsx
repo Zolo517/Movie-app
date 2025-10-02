@@ -3,7 +3,7 @@ import { InfoCard } from "@/components/InfoCard";
 import { Card, CardContent } from "@/components/ui/card";
 
 import { useState } from "react";
-import { Buttons } from "../../components/Buttons";
+import { Buttons } from "../../components/testPageButtons";
 
 export type infoType = {
   name: string;

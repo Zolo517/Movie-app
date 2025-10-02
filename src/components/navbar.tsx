@@ -10,65 +10,37 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Logo } from "./Logo";
 import { Genres } from "./Genres";
+import { Theme } from "./Theme";
 
-export const Navbar = ({genres}:{genres:string[]}) => {
- 
-
+export const Navbar = ({ genres }: { genres: string[] }) => {
   return (
     <div className="px-20 py-[11.5px]">
       <div className="flex justify-between items-center h-9 ">
         <Logo color="#4338CA" />
         <div className="flex gap-3">
-          <Genres genres={genres}/>
-          <Input className="w-[379px] h-9" />
+          <Genres genres={genres} />
+          <div className="relative">
+            <svg
+              className="absolute left-2 top-2.5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="17"
+              viewBox="0 0 16 17"
+              fill="none"
+            >
+              <g opacity="0.5">
+                <path
+                  d="M6.93359 3.1333C9.30835 3.1333 11.2333 5.05837 11.2334 7.43311C11.2334 8.44873 10.8824 9.38107 10.2939 10.1167L10.0137 10.4663L13.3574 13.8101C13.3638 13.8166 13.3672 13.825 13.3672 13.8335L13.3574 13.8569C13.3444 13.8698 13.3236 13.8697 13.3105 13.8569L9.9668 10.5132L9.61719 10.7935C8.88156 11.3819 7.94922 11.7329 6.93359 11.7329C4.55886 11.7328 2.63379 9.80786 2.63379 7.43311C2.63389 5.05844 4.55893 3.13341 6.93359 3.1333ZM6.93359 3.19971C4.59574 3.19981 2.7003 5.09525 2.7002 7.43311C2.7002 9.77105 4.59567 11.6664 6.93359 11.6665C9.2716 11.6665 11.167 9.77111 11.167 7.43311C11.1669 5.09519 9.27154 3.19971 6.93359 3.19971Z"
+                  fill="#09090B"
+                  stroke="#09090B"
+                />
+              </g>
+            </svg>
+            <Input className="w-[379px] h-9" />
+          </div>
         </div>
-        <Button variant={"outline"}>
-          {<svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="13"
-            viewBox="0 0 14 13"
-            fill="none"
-          >
-            <path
-              d="M7 0.5C6.20435 1.29565 5.75736 2.37478 5.75736 3.5C5.75736 4.62522 6.20435 5.70435 7 6.5C7.79565 7.29565 8.87478 7.74264 10 7.74264C11.1252 7.74264 12.2044 7.29565 13 6.5C13 7.68669 12.6481 8.84673 11.9888 9.83342C11.3295 10.8201 10.3925 11.5892 9.2961 12.0433C8.19975 12.4974 6.99335 12.6162 5.82946 12.3847C4.66558 12.1532 3.59648 11.5818 2.75736 10.7426C1.91825 9.90353 1.3468 8.83443 1.11529 7.67054C0.88378 6.50666 1.0026 5.30026 1.45673 4.2039C1.91085 3.10754 2.67989 2.17047 3.66658 1.51118C4.65328 0.851894 5.81331 0.5 7 0.5Z"
-              stroke="#18181B"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>}
-        </Button>
+        <Theme></Theme>
       </div>
     </div>
   );
 };
-
-{
-  /*<DropdownMenuItem>Action </DropdownMenuItem>
-                  <DropdownMenuItem>Adventure</DropdownMenuItem>
-                  <DropdownMenuItem>Animation</DropdownMenuItem>
-                  <DropdownMenuItem>Biography</DropdownMenuItem>
-                  <DropdownMenuItem>Comedy</DropdownMenuItem>
-                  <DropdownMenuItem>Crime</DropdownMenuItem>
-                  <DropdownMenuItem>Documentary</DropdownMenuItem>
-                  <DropdownMenuItem>Drama</DropdownMenuItem>
-                  <DropdownMenuItem>Family</DropdownMenuItem>
-                  <DropdownMenuItem>Fantasy</DropdownMenuItem>
-                  <DropdownMenuItem>Film-Noir</DropdownMenuItem>
-                  <DropdownMenuItem>Game-show</DropdownMenuItem>
-                  <DropdownMenuItem>History</DropdownMenuItem>
-                  <DropdownMenuItem>Horror</DropdownMenuItem>
-                  <DropdownMenuItem>Music</DropdownMenuItem>
-                  <DropdownMenuItem>Musical</DropdownMenuItem>
-                  <DropdownMenuItem>Mystery</DropdownMenuItem>
-                  <DropdownMenuItem>News</DropdownMenuItem>
-                  <DropdownMenuItem>Reality-TV</DropdownMenuItem>
-                  <DropdownMenuItem>Romance</DropdownMenuItem>
-                  <DropdownMenuItem>Sci-Fi</DropdownMenuItem>
-                  <DropdownMenuItem>Short</DropdownMenuItem>
-                  <DropdownMenuItem>Sport</DropdownMenuItem>
-                  <DropdownMenuItem>Talk-show</DropdownMenuItem>
-                  <DropdownMenuItem>Thriller</DropdownMenuItem>
-                  <DropdownMenuItem>War</DropdownMenuItem>
-                  <DropdownMenuItem>Western</DropdownMenuItem> */
-}

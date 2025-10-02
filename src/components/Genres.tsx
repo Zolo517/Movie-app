@@ -1,3 +1,4 @@
+import { genresType } from "@/lib/type";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,13 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 
-export const Genres = ({genres}:{genres:string[]}) => {
-
+export const Genres = ({ genres }: { genres: genresType[] }) => {
   return (
     <DropdownMenu>
-  
-        <DropdownMenuTrigger className="font-medium border-[1px] border-solid border-[#E4E4E7] py2 px-4 rounded-[6px] flex items-center justify-center gap-2">
-          <svg
+      <DropdownMenuTrigger className="font-medium border-[1px] border-solid border-[#E4E4E7] py2 px-4 rounded-[6px] flex items-center justify-center gap-2">
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="17"
@@ -27,10 +26,9 @@ export const Genres = ({genres}:{genres:string[]}) => {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </svg>Genre 
-        </DropdownMenuTrigger>
-       
-  
+        </svg>
+        Genre
+      </DropdownMenuTrigger>
 
       <DropdownMenuContent className=" w-[577px] h-[333px] border-[1px] border-[#E4E4E7] rounded-lg p-5 mt-[4.5px] z-10 bg-[#FFF]">
         <DropdownMenuLabel className="font-semibold text-2xl ">
@@ -48,7 +46,9 @@ export const Genres = ({genres}:{genres:string[]}) => {
                 className="border-[0.1px] border-[#E4E4E7] rounded-[50px] justify-center items-center gap-2 text-[12px] font-semibold flex pl-[10px] pr-[4px] py-[2px]"
                 key={index + Math.random()}
               >
-                <DropdownMenuItem className=" ">{genre}</DropdownMenuItem>
+                <DropdownMenuItem className=" " key={index + Math.random()}>
+                  <p>{genre.name}</p>
+                </DropdownMenuItem>
                 <svg
                   className=""
                   xmlns="http://www.w3.org/2000/svg"

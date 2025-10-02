@@ -1,5 +1,5 @@
 import { Badge } from "./ui/badge";
 
-export const BadgeButton = () => {
-  return <Badge variant={"outline"}>Fairy Tale</Badge>;
+export const BadgeButton = ({ children }: { children: string }) => {
+  return <Badge variant={"outline"}>{children}</Badge>;
 };

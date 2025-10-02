@@ -1,13 +1,21 @@
-
-import {  movieType } from "@/lib/type";
+import { movieType } from "@/lib/type";
 import { MovieCard } from "./MovieCard";
 
-
-export const SectionTwo = ({movies, title}: {title:string,  movies:movieType[] }) => {
-
-
+export const SectionTwo = ({
+  movies,
+  title,
+  width,
+  height,
+  imgH,
+}: {
+  imgH: string;
+  title: string;
+  width: string;
+  height: string;
+  movies: movieType[];
+}) => {
   return (
-    <div className="px-20 w-full gap-8 mt-[52px]">
+    <div>
       <div className="flex justify-between items-center">
         <h3 className="text-2xl font-semibold">{title}</h3>
         <button className="flex p-4 gap-2 items-center">
@@ -32,7 +40,13 @@ export const SectionTwo = ({movies, title}: {title:string,  movies:movieType[] }
       <div className="flex flex-wrap gap-8">
         {movies.map((movie, index) => {
           return (
-            <MovieCard key={index + Math.random()} movie={movie} />
+            <MovieCard
+              img={imgH}
+              w={width}
+              h={height}
+              key={index + Math.random()}
+              movie={movie}
+            />
           );
         })}
       </div>

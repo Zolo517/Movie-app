@@ -8,18 +8,20 @@ import { BadgeButton } from "@/components/BadgeButton";
 
 import { MovieSearch } from "@/components/MovieSearchCard";
 
-import * as type from "@/lib/constants";
+import * as constants from "@/lib/constants";
 import { Navbar } from "@/components/NavBar";
 
 export default function Home() {
   return (
     <div className="">
-      <Navbar genres={type.genres}></Navbar>
-      <SectionOne movieItems={type.movieItems}></SectionOne>
-      <div className="">
-        {type.movieCategories.map((movieCategory, index) => {
+      <SectionOne movieItems={constants.movieItems}></SectionOne>
+      <div className="px-20 w-full gap-8 mt-[52px]">
+        {constants.movieCategories.map((movieCategory, index) => {
           return (
             <SectionTwo
+              imgH={"340px"}
+              width={"230px"}
+              height={"439px"}
               title={movieCategory.category}
               movies={movieCategory.movies}
               key={index + Math.random()}
@@ -27,9 +29,6 @@ export default function Home() {
           );
         })}
       </div>
-      <Footer></Footer>
     </div>
   );
 }
-
-

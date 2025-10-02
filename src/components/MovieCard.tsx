@@ -2,11 +2,25 @@ import { movieType } from "@/lib/type";
 import { Card, CardContent } from "./ui/card";
 import { Rating } from "./Rating";
 
-export const MovieCard = ({ movie }: { movie: movieType }) => {
+export const MovieCard = ({
+  movie,
+  w,
+  h,
+  img,
+}: {
+  w: string;
+  img: string;
+  h: string;
+  movie: movieType;
+}) => {
   return (
-    <Card className="w-[230px] h-[439px] gap-1 overflow-hidden">
+    <Card style={{ width: w, height: h }} className=" gap-1 overflow-hidden">
       <CardContent>
-        <img src={movie.image} className="w-full h-[340px] overflow-hidden" />
+        <img
+          src={movie.image}
+          style={{ height: img }}
+          className="w-full h-[77%] overflow-hidden"
+        />
         <div className="bg-[#F4F4F5] p-2 h-full">
           <div className="flex gap-1 items-center">
             <svg

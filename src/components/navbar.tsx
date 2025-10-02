@@ -11,15 +11,19 @@ import { Button } from "./ui/button";
 import { Logo } from "./Logo";
 import { Genres } from "./Genres";
 import { Theme } from "./Theme";
+import { Search } from "lucide-react";
+import { genresType } from "@/lib/type";
 
-export const Navbar = ({ genres }: { genres: string[] }) => {
+export const Navbar = ({ genres }: { genres: genresType[] }) => {
   return (
     <div className="px-20 py-[11.5px]">
       <div className="flex justify-between items-center h-9 ">
-        <Logo color="#4338CA" />
+        <a href="http://localhost:3000/">
+          <Logo color="#4338CA" />
+        </a>
         <div className="flex gap-3">
           <Genres genres={genres} />
-          <div className="relative">
+          <div className="relative flex">
             <svg
               className="absolute left-2 top-2.5"
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +40,7 @@ export const Navbar = ({ genres }: { genres: string[] }) => {
                 />
               </g>
             </svg>
-            <Input className="w-[379px] h-9" />
+            <Input className="w-[500px] h-9" placeholder={`Search..`} />
           </div>
         </div>
         <Theme></Theme>

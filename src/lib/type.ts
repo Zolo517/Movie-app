@@ -19,3 +19,6 @@ export type ratingType = {
   large: string;
   small: string;
 };
+export type genresType = {
+  name: string;
+};

@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { SectionTwo } from "@/components/SectionTwo";
 import { BadgeButton } from "@/components/BadgeButton";
 import { carouselMovie, movieCategoryType, movieType } from "@/lib/type";
+import { MovieSearch } from "@/components/MovieSearchCard";
 
 export default function Home() {
   const movieCategories: movieCategoryType[] = [

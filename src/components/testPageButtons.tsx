@@ -7,7 +7,7 @@ export const Buttons = ({
 }: {
   step: number;
   prevButton: () => void;
-  nextButton: () => void;
+  nextButton: () => void;  
 }) => {
   return (
     <div className="flex gap-3">

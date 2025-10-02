@@ -1,5 +1,6 @@
 import { carouselMovie } from "@/lib/type";
 import { Rating } from "./Rating";
+import { TraillerButton } from "./TrailerButton";
 
 export const MovieItem = ({ movieItem }: { movieItem: carouselMovie }) => {
   return (
@@ -9,13 +10,13 @@ export const MovieItem = ({ movieItem }: { movieItem: carouselMovie }) => {
       }}
       className={
         movieItem.image === "/gladiator.png"
-          ? "bg-cover w-full h-150 bg-start flex items-center"
-          : "bg-cover w-full h-150 bg-center flex items-center"
+          ? "bg-cover w-full h-150 bg-start flex items-center text-[#FFF]"
+          : "bg-cover w-full h-150 bg-center flex items-center text-[#FFF]"
       }
     >
       <div className="w-101 h-66 ml-35">
         <p className="text-[16px] ">Now Playing:</p>
-        <h1 className="text-4xl">{movieItem.name}</h1>
+        <h1 className="text-4xl font-bold">{movieItem.name}</h1>
 
         <div className="flex gap-1 items-center">
           <svg
@@ -39,7 +40,8 @@ export const MovieItem = ({ movieItem }: { movieItem: carouselMovie }) => {
             small={"16px"}
           ></Rating>
         </div>
-        <p>{movieItem.desc}</p>
+        <p className="w-[302px] my-4 text-[12px]">{movieItem.desc}</p>
+        <TraillerButton ></TraillerButton>
       </div>
     </div>
   );

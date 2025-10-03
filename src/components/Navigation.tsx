@@ -14,7 +14,7 @@ import { Theme } from "./Theme";
 import { Search } from "lucide-react";
 import { genresType } from "@/lib/type";
 
-export const Navbar = ({ genres }: { genres: genresType[] }) => {
+export const Navigation = ({ genres }: { genres: genresType[] }) => {
   return (
     <div className="px-20 py-[11.5px] sticky top-0">
       <div className="flex justify-between items-center h-9 ">

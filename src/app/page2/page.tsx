@@ -1,5 +1,5 @@
 import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/NavBar";
+import { Navbar } from "@/components/Navigation";
 import { Rating } from "@/components/Rating";
 import Image from "next/image";
 import { SectionOne } from "@/components/SectionOne";

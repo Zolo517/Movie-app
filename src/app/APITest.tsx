@@ -1,5 +1,5 @@
 import { APICard } from "./APICard";
-import { Navbar } from "@/components/NavBar";
+import { Navbar } from "@/components/Navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 

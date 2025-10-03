@@ -267,3 +267,65 @@ export const moreLikeThis: movieCategoryType[] = [
     ],
   },
 ];
+export const filters: movieType[] = [
+  {
+    rating: 6.4,
+    title: "Pulp fiction",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.3,
+    title: "The Lord Of the rings: The fellowship of the rings",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.2,
+    title: "The good , the bad, and the ugly",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.9,
+    title: "Forrest Gump",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 6.0,
+    title: "Fight club",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "Saving private ryan",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "City of god",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "The Green mile",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "Life is beautiful",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "Terminator 2: Judgement day",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "City of god",
+    image: "/httyd.jpg",
+  },
+  {
+    rating: 7.0,
+    title: "The Green mile",
+    image: "/httyd.jpg",
+  },
+];

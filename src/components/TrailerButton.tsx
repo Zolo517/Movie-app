@@ -1,11 +1,13 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 export const TraillerButton = () => {
   return (
-    <a href="http://localhost:3000/page2">
+    <Link href="/genrefilter">
       {" "}
-      <Button variant={"outline"} className="flex gap-2 py-2 px-4">
+      <Button variant={"secondary"} className="flex gap-2 py-2 px-4 ">
         <svg
+          className="text-black dark:text-white"
           xmlns="http://www.w3.org/2000/svg"
           width="12"
           height="14"
@@ -14,13 +16,13 @@ export const TraillerButton = () => {
         >
           <path
             d="M1.33301 1L10.6663 7L1.33301 13V1Z"
-            stroke="#18181B"
+            stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg>
-        <p className="text-[black]">Watch Trailer</p>
+        <p>Watch Trailer</p>
       </Button>
-    </a>
+    </Link>
   );
 };

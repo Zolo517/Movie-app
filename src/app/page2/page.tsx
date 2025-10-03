@@ -11,10 +11,7 @@ import { Page2Body } from "@/components/Page2Body";
 export default function Page() {
   return (
     <div className="">
-
       <Page2Body></Page2Body>
-
-
     </div>
   );
 }

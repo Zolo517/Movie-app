@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -9,9 +11,12 @@ import { BadgeButton } from "@/components/BadgeButton";
 import { MovieSearch } from "@/components/MovieSearchCard";
 
 import * as constants from "@/lib/constants";
-import { Navbar } from "@/components/NavBar";
+
+import { APITest } from "./APITest";
 
 export default function Home() {
+
+
   return (
     <div className="">
       <SectionOne movieItems={constants.movieItems}></SectionOne>
@@ -28,6 +33,8 @@ export default function Home() {
             />
           );
         })}
+
+        <APITest />
       </div>
     </div>
   );

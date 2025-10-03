@@ -1,6 +1,7 @@
 import { movieType } from "@/lib/type";
 import { Card, CardContent } from "./ui/card";
 import { Rating } from "./Rating";
+import Link from "next/link";
 
 export const MovieCard = ({
   movie,
@@ -14,40 +15,42 @@ export const MovieCard = ({
   movie: movieType;
 }) => {
   return (
-    <Card style={{ width: w, height: h }} className=" gap-1 overflow-hidden">
-      <CardContent>
-        <img
-          src={movie.image}
-          style={{ height: img }}
-          className="w-full h-[77%] overflow-hidden"
-        />
-        <div className="bg-[#F4F4F5] p-2 h-full">
-          <div className="flex gap-1 items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="15"
-              viewBox="0 0 16 15"
-              fill="none"
-            >
-              <path
-                d="M7.99967 1.3335L10.0597 5.50683L14.6663 6.18016L11.333 9.42683L12.1197 14.0135L7.99967 11.8468L3.87967 14.0135L4.66634 9.42683L1.33301 6.18016L5.93967 5.50683L7.99967 1.3335Z"
-                fill="#FDE047"
-                stroke="#FDE047"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <Rating
-              rating={movie.rating}
-              large={"14px"}
-              small={"12px"}
-            ></Rating>
+    <Link href="/page2">
+      <Card style={{ width: w, height: h }} className=" gap-1 overflow-hidden ">
+        <CardContent>
+          <img
+            src={movie.image}
+            style={{ height: img }}
+            className="w-full h-[77%] overflow-hidden"
+          />
+          <div className=" p-2 h-full">
+            <div className="flex gap-1 items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="15"
+                viewBox="0 0 16 15"
+                fill="none"
+              >
+                <path
+                  d="M7.99967 1.3335L10.0597 5.50683L14.6663 6.18016L11.333 9.42683L12.1197 14.0135L7.99967 11.8468L3.87967 14.0135L4.66634 9.42683L1.33301 6.18016L5.93967 5.50683L7.99967 1.3335Z"
+                  fill="#FDE047"
+                  stroke="#FDE047"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <Rating
+                rating={movie.rating}
+                large={"14px"}
+                small={"12px"}
+              ></Rating>
+            </div>
+            <h3 className="text-[18px]">{movie.title}</h3>
           </div>
-          <h3 className="text-[18px]">{movie.title}</h3>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 {

@@ -6,9 +6,9 @@ import axios from "axios";
 export const APITest = () => {
   const [movieData, setMovieData] = useState<{}>({});
 
-  const setMovieDataHandler = (data:{}) => {
+  const setMovieDataHandler = (data: {}) => {
     setMovieData(data);
-  }
+  };
 
   useEffect(() => {
     axios

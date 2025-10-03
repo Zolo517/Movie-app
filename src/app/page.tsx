@@ -1,22 +1,14 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { SectionOne } from "@/components/SectionOne";
 import { Footer } from "@/components/Footer";
 import { SectionTwo } from "@/components/SectionTwo";
 import { BadgeButton } from "@/components/BadgeButton";
-
 import { MovieSearch } from "@/components/MovieSearchCard";
-
 import * as constants from "@/lib/constants";
-
 import { APITest } from "./APITest";
-
 export default function Home() {
-
-
   return (
     <div className="">
       <SectionOne movieItems={constants.movieItems}></SectionOne>
@@ -32,10 +24,7 @@ export default function Home() {
               key={index + Math.random()}
             />
           );
-        })}
-
-        <APITest />
-      </div>
+        })}</div>
     </div>
   );
 }

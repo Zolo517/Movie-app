@@ -2,16 +2,7 @@ import { movieType } from "@/lib/type";
 import { MovieCard } from "./MovieCard";
 import * as constants from "@/lib/constants";
 
-export const FilteredMovies = ({
-
-  width,
-  height,
-  imgH,
-}: {
-  imgH: string;
-  width: string;
-  height: string;
-}) => {
+export const FilteredMovies = () => {
   return (
     <div>
       <h4 className="text-[20px] font-semibold mb-8">
@@ -21,9 +12,9 @@ export const FilteredMovies = ({
         {constants.filters.map((movie, index) => {
           return (
             <MovieCard
-              img={imgH}
-              w={width}
-              h={height}
+              img={"281px"}
+              w={"190px"}
+              h={"372px"}
               key={index + Math.random()}
               movie={movie}
             />

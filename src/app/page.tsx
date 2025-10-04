@@ -5,7 +5,7 @@ import { SectionOne } from "@/components/SectionOne";
 import { Footer } from "@/components/Footer";
 import { SectionTwo } from "@/components/SectionTwo";
 import { BadgeButton } from "@/components/BadgeButton";
-import { MovieSearch } from "@/components/MovieSearchCard";
+import { MovieSearchCard } from "@/components/MovieSearchCard";
 import * as constants from "@/lib/constants";
 import { APITest } from "./APITest";
 export default function Home() {
@@ -24,7 +24,8 @@ export default function Home() {
               key={index + Math.random()}
             />
           );
-        })}</div>
+        })}
+      </div>
     </div>
   );
 }

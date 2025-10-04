@@ -1,6 +1,6 @@
 import { Rating } from "./Rating";
 
-export const MovieSearch = () => {
+export const MovieSearchCard = () => {
   return (
     <div>
       <img src="/wicked.jpg" alt="" className="w-[67px] h-[100px] " />
@@ -12,7 +12,7 @@ export const MovieSearch = () => {
             width="16"
             height="15"
             viewBox="0 0 16 15"
-             fill="none"
+            fill="none"
           >
             <path
               d="M7.99967 1.3335L10.0597 5.50683L14.6663 6.18016L11.333 9.42683L12.1197 14.0135L7.99967 11.8468L3.87967 14.0135L4.66634 9.42683L1.33301 6.18016L5.93967 5.50683L7.99967 1.3335Z"

@@ -1,5 +1,6 @@
 import { FilteredMovies } from "@/components/FilteredMovies";
 import { MovieCard } from "@/components/MovieCard";
+import { Pagination } from "@/components/ui/pagination";
 import { genres } from "@/lib/constants";
 import { movieType } from "@/lib/type";
 
@@ -41,7 +42,8 @@ export default function Page3() {
           </div>
         </div>
         <div className="border-[1px] mx-4"></div>
-        <FilteredMovies width={"190px"} height={"372px"} imgH={"281px"} />
+        <FilteredMovies />
+        {/* <Pagination></Pagination> */}
       </div>
     </div>
   );

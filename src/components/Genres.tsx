@@ -1,13 +1,13 @@
 import { genresType } from "@/lib/type";
+
 import {
+  DropdownMenuTrigger,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
+} from "./ui/dropdown-menu";
 
 export const Genres = ({ genres }: { genres: genresType[] }) => {
   return (
@@ -32,7 +32,7 @@ export const Genres = ({ genres }: { genres: genresType[] }) => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className=" w-[577px] h-[333px] border-[1px] border-[#E4E4E7] rounded-lg p-5 mt-[4.5px] z-10 bg-[#FFF] dark:bg-[black]">
-        <DropdownMenuLabel >
+        <DropdownMenuLabel>
           <p className="font-semibold text-2xl ">Genres</p>
         </DropdownMenuLabel>
         <DropdownMenuLabel className="text-[16px] ">

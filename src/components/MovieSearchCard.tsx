@@ -8,7 +8,7 @@ export const MovieSearchCard = () => {
         <h4>Wicked</h4>
         <div className="flex gap-1 items-center">
           <svg
-            className="text-[#FDE047] dark: text-white"
+            className="text-[#FDE047] dark:text-white"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="15"

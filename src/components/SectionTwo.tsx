@@ -2,20 +2,45 @@ import { movieType } from "@/lib/type";
 import { MovieCard } from "./MovieCard";
 
 export const SectionTwo = ({
-
+  isLoading,
   movies,
   title,
   width,
   height,
   imgH,
 }: {
-
+  isLoading: boolean;
   imgH: string;
   title: string;
   width: string;
   height: string;
   movies: movieType[];
 }) => {
+  if (isLoading) {
+    return (
+      <div>
+        <div className="flex justify-between items-center">
+          <h3 className="w-[250px] h-8 bg-[#F4F4F5] rounded-3xl"></h3>
+          <button className="flex p-4 gap-2 items-center bg-[#F4F4F5] rounded-3xl"></button>
+        </div>
+
+        <div className="flex flex-wrap gap-8">
+          {movies.map((movie, index) => {
+            return (
+              <MovieCard
+                img={imgH}
+                w={width}
+                h={height}
+                key={index + Math.random()}
+                movie={movie}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="flex justify-between items-center">

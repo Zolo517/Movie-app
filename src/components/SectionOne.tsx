@@ -13,7 +13,19 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 
-export const SectionOne = ({ movieItems }: { movieItems: carouselMovie[] }) => {
+export const SectionOne = ({
+  movieItems,
+  isLoading,
+}: {
+  movieItems: carouselMovie[];
+  isLoading: boolean;
+}) => {
+  if (isLoading) {
+    return (
+      <div className="mt-6 h-150 z-1 bg-[#F4F4F5] dark:bg-[#27272A]"></div>
+    );
+  }
+
   return (
     <div className="mt-6 h-150 z-1">
       <Carousel

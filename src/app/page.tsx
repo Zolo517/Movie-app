@@ -11,11 +11,15 @@ import { APITest } from "./APITest";
 export default function Home() {
   return (
     <div className="">
-      <SectionOne movieItems={constants.movieItems}></SectionOne>
+      <SectionOne
+        isLoading={true}
+        movieItems={constants.movieItems}
+      ></SectionOne>
       <div className="px-20 w-full gap-8 mt-[52px]">
         {constants.movieCategories.map((movieCategory, index) => {
           return (
             <SectionTwo
+              isLoading={true}
               imgH={"340px"}
               width={"230px"}
               height={"439px"}

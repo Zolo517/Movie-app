@@ -1,25 +1,23 @@
 import { Rating } from "@/components/Rating";
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "lucide-react";
-
-export const APICard = ({
-  movie,
-  img,
-  w,
-  h,
-}: {
+import Link from "next/link";
+type movieCardProps = {
   img: string;
-  w: string;
-  h: string;
-movie:[]
-}) => {
+  title: string;
+  score: number;
+};
+
+export const APICard = ({ img, title, score }: movieCardProps) => {
   return (
     <Link href="/page2">
-      <Card style={{ width: w, height: h }} className=" gap-1 overflow-hidden ">
+      <Card
+        style={{ width: "230px", height: "500px" }}
+        className=" gap-1 overflow-hidden "
+      >
         <CardContent>
           <img
-            src={movie.}
-            style={{ height: img }}
+            src={`https://image.tmdb.org/t/p/w500/${img}`}
+            style={{ height: "400px" }}
             className="w-full h-[77%] overflow-hidden"
           />
           <div className=" p-2 h-full">
@@ -39,9 +37,9 @@ movie:[]
                   strokeLinejoin="round"
                 />
               </svg>
-              <Rating rating={movie} large={"14px"} small={"12px"}></Rating>
+              <Rating rating={score} large={"14px"} small={"12px"}></Rating>
             </div>
-            <h3 className="text-[18px]">{}</h3>
+            <h3 className="text-[18px]">{title}</h3>
           </div>
         </CardContent>
       </Card>

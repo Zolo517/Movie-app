@@ -1,5 +1,5 @@
-import { movieType } from "@/lib/type";
 import { MovieCard } from "./MovieCard";
+import { movieType } from "@/lib/type";
 
 export const SectionTwo = ({
   isLoading,
@@ -17,17 +17,43 @@ export const SectionTwo = ({
   movies: movieType[];
 }) => {
   if (isLoading) {
+    if (title === "Upcoming") {
+      return (
+        <div className="flex flex-col gap-8">
+          <div className="flex justify-between items-center">
+            <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
+            <button className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></button>
+          </div>
+
+          <div className="flex flex-wrap gap-8">
+            {movies.splice(0, 10).map((movie, index) => {
+              return (
+                <MovieCard
+                  isLoading={true}
+                  img={imgH}
+                  w={width}
+                  h={height}
+                  key={index + Math.random()}
+                  movie={movie}
+                />
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
     return (
-      <div>
+      <div className="flex flex-col gap-8 mt-8">
         <div className="flex justify-between items-center">
-          <h3 className="w-[250px] h-8 bg-[#F4F4F5] rounded-3xl"></h3>
-          <button className="flex p-4 gap-2 items-center bg-[#F4F4F5] rounded-3xl"></button>
+          <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
+          <button className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></button>
         </div>
 
         <div className="flex flex-wrap gap-8">
-          {movies.map((movie, index) => {
+          {movies.splice(0, 10).map((movie, index) => {
             return (
               <MovieCard
+                isLoading={true}
                 img={imgH}
                 w={width}
                 h={height}
@@ -42,8 +68,8 @@ export const SectionTwo = ({
   }
 
   return (
-    <div>
-      <div className="flex justify-between items-center">
+    <div className="">
+      <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">{title}</h3>
         <button className="flex p-4 gap-2 items-center">
           <p className="text-[14px] font-medium">See more</p>
@@ -66,10 +92,11 @@ export const SectionTwo = ({
         </button>
       </div>
 
-      <div className="flex flex-wrap gap-8">
-        {movies.map((movie, index) => {
+      <div className="flex flex-wrap gap-8 ">
+        {movies.splice(0, 10).map((movie, index) => {
           return (
             <MovieCard
+              isLoading={false}
               img={imgH}
               w={width}
               h={height}

@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { Rating } from "./Rating";
+
+import { movieType } from "@/lib/type";
+import { Rating } from "@/components/Rating";
 
 export const FirstPart = () => {
   return (

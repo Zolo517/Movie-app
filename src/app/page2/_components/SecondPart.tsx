@@ -1,5 +1,5 @@
 import * as constants from "@/lib/constants";
-import { BadgeButton } from "@/components/BadgeButton";
+import { BadgeButton } from "./BadgeButton";
 
 export const SecondPart = () => {
   return (

@@ -1,28 +1,24 @@
-import { APICard } from "./APICard";
-import { Navbar } from "@/components/Navigation";
-import { useEffect, useState } from "react";
+import { APICard } from "../components/APICard";
+import { Navigation } from "@/components/Navigation";
+
 import axios from "axios";
 
-export const APITest = () => {
-  const [movieData, setMovieData] = useState<{}>({});
+export async function APITest() {
+  const categories = ["popular", "upcoming", "top_rated"];
 
-  const setMovieDataHandler = (data: {}) => {
-    setMovieData(data);
-  };
-
-  useEffect(() => {
-    axios
-      .get(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`, {
+  const getUpComingMovies = async () => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${categories}?language=en-US&page=1`,
+      {
         headers: {
           Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYjkwMWUzNTJlOTFkMmU1OTcyNThhYzU1ZDM2ZmZmMiIsIm5iZiI6MTc1OTA1MDY1Ny4zMjUsInN1YiI6IjY4ZDhmYmExOTBlY2QwMDlhYWI5YTFmZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MZd1y3tFFfxvZlPqBNIqCDw0G_aMwCZzWxffwENlwT8`,
         },
-      })
-      .then((response) => {
-        console.log(response.data);
-        // setMovieData(prev => prev = {...response.data});
-        // setMovieDataHandler(response.data);
-      });
-  }, []);
+      }
+    );
+    return response.data;
+  };
+  const movieResults = await getUpComingMovies();
+
 
   return (
     <div>
@@ -50,11 +46,17 @@ export const APITest = () => {
       </div>
 
       <div className="flex flex-wrap gap-8">
-        {movieData.results &&
-          movieData.results.map((movie) => {
-            return <APITest key={movie.id} movie={movie} />;
-          })}
+        {movieResults.results.map((movies) => {
+          return (
+            <APICard
+              key={movies.id}
+              img={movies.poster_path}
+              score={movies.vote_average}
+              title={movies.title}
+            />
+          );
+        })}
       </div>
     </div>
   );
-};
+}

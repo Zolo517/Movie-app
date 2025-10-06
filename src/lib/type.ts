@@ -6,12 +6,27 @@ export type carouselMovie = {
 };
 export type movieType = {
   title: string;
-  image: string;
-  rating: number;
+
+  poster_path: string;
+
+  adult: boolean;
+  backdrop_path: string;
+
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+
+  release_date: string;
+
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 };
 export type movieCategoryType = {
   category: string;
-  movies: movieType[];
+  movies: ()=>void;
 };
 export type ratingType = {
   rating: number;

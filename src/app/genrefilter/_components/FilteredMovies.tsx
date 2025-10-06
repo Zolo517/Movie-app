@@ -1,5 +1,5 @@
 import { movieType } from "@/lib/type";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "../../../components/MovieCard";
 import * as constants from "@/lib/constants";
 
 export const FilteredMovies = () => {
@@ -9,9 +9,10 @@ export const FilteredMovies = () => {
         81 titles in “Animation”
       </h4>
       <div className="flex flex-wrap gap-8">
-        {constants.filters.map((movie, index) => {
+        {/* {constants.filters.map((movie, index) => {
           return (
             <MovieCard
+            isLoading={false}
               img={"281px"}
               w={"190px"}
               h={"372px"}
@@ -19,7 +20,7 @@ export const FilteredMovies = () => {
               movie={movie}
             />
           );
-        })}
+        })} */}
       </div>
     </div>
   );

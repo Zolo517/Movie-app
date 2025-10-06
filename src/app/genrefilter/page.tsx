@@ -1,4 +1,4 @@
-import { FilteredMovies } from "@/components/FilteredMovies";
+import { FilteredMovies } from "@/app/genrefilter/_components/FilteredMovies";
 import { MovieCard } from "@/components/MovieCard";
 import { Pagination } from "@/components/ui/pagination";
 import { genres } from "@/lib/constants";

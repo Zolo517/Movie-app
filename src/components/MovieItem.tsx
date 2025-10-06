@@ -1,22 +1,22 @@
-import { carouselMovie } from "@/lib/type";
+import { carouselMovie, movieType } from "@/lib/type";
 import { Rating } from "./Rating";
 import { TraillerButton } from "./TrailerButton";
 
-export const MovieItem = ({ movieItem }: { movieItem: carouselMovie }) => {
+export const MovieItem = ({ movie }: { movie: movieType }) => {
   return (
     <div
       style={{
-        backgroundImage: `url('${movieItem.image}')`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
       }}
       className={
-        movieItem.image === "/gladiator.png"
+        movie.backdrop_path === "/gladiator.png"
           ? "bg-cover w-full h-150 bg-start flex items-center text-[#FFF]"
           : "bg-cover w-full h-150 bg-center flex items-center text-[#FFF]"
       }
     >
       <div className="w-101 h-66 ml-35">
         <p className="text-[16px] ">Now Playing:</p>
-        <h1 className="text-4xl font-bold">{movieItem.name}</h1>
+        <h1 className="text-4xl font-bold">{movie.title}</h1>
 
         <div className="flex gap-1 items-center">
           <svg
@@ -35,13 +35,13 @@ export const MovieItem = ({ movieItem }: { movieItem: carouselMovie }) => {
             />
           </svg>
           <Rating
-            rating={movieItem.rating}
+            rating={movie.vote_average}
             large={"18px"}
             small={"16px"}
           ></Rating>
         </div>
-        <p className="w-[302px] my-4 text-[12px]">{movieItem.desc}</p>
-        <TraillerButton ></TraillerButton>
+        <p className="w-[302px] my-4 text-[12px]">{movie.overview}</p>
+        <TraillerButton></TraillerButton>
       </div>
     </div>
   );

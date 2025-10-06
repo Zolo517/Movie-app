@@ -4,22 +4,35 @@ import { Rating } from "./Rating";
 import Link from "next/link";
 
 export const MovieCard = ({
+  isLoading,
   movie,
   w,
   h,
   img,
 }: {
+  isLoading: boolean;
   w: string;
   img: string;
   h: string;
   movie: movieType;
 }) => {
+  if (isLoading) {
+    return (
+      <Link href="/page2">
+        <Card
+          style={{ width: w, height: h }}
+          className=" gap-1 overflow-hidden bg-[#F4F4F5] dark:bg-[#27272A]"
+        ></Card>
+      </Link>
+    );
+  }
+
   return (
     <Link href="/page2">
       <Card style={{ width: w, height: h }} className=" gap-1 overflow-hidden ">
         <CardContent>
           <img
-            src={movie.image}
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             style={{ height: img }}
             className="w-full h-[77%] overflow-hidden"
           />
@@ -41,7 +54,7 @@ export const MovieCard = ({
                 />
               </svg>
               <Rating
-                rating={movie.rating}
+                rating={movie.vote_average}
                 large={"14px"}
                 small={"12px"}
               ></Rating>

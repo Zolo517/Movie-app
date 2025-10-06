@@ -2,7 +2,7 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
-import { carouselMovie } from "@/lib/type";
+import { carouselMovie, movieType } from "@/lib/type";
 import { MovieItem } from "./MovieItem";
 
 import {
@@ -14,10 +14,10 @@ import {
 } from "./ui/carousel";
 
 export const SectionOne = ({
-  movieItems,
+  movies,
   isLoading,
 }: {
-  movieItems: carouselMovie[];
+  movies: movieType[];
   isLoading: boolean;
 }) => {
   if (isLoading) {
@@ -31,19 +31,16 @@ export const SectionOne = ({
       <Carousel
         plugins={[
           Autoplay({
-            delay: 2000,
+            delay: 2500,
           }),
         ]}
       >
         <div className="relative">
           <CarouselContent>
-            {movieItems.map((movieItem, i) => {
+            {movies.map((movie, i) => {
               return (
                 <CarouselItem key={i + Math.random()}>
-                  <MovieItem
-                    key={Math.random()}
-                    movieItem={movieItem}
-                  ></MovieItem>
+                  <MovieItem key={Math.random()} movie={movie}></MovieItem> 
                 </CarouselItem>
               );
             })}

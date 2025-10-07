@@ -31,23 +31,23 @@ export const Genres = ({ genres }: { genres: genresType[] }) => {
         Genre
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className=" w-[577px] h-[333px] border-[1px] border-[#E4E4E7] rounded-lg p-5 mt-[4.5px] z-10 bg-[#FFF] dark:bg-[black]">
+      <DropdownMenuContent className=" w-[577px] h-[333px] border-[1px] border-[#E4E4E7] rounded-lg p-5  z-10 bg-[#FFF] dark:bg-[black]">
         <DropdownMenuLabel>
-          <p className="font-semibold text-2xl ">Genres</p>
-        </DropdownMenuLabel>
-        <DropdownMenuLabel className="text-[16px] ">
-          See lists of movies by genre
+          <div>
+            <p className="font-semibold text-2xl ">Genres</p>
+            <p className="text-[16px] "> See lists of movies by genre</p>
+          </div>
         </DropdownMenuLabel>
 
-        <div className="w-full my-4 border-[1px] "></div>
-        <DropdownMenuGroup className="flex flex-wrap w-[500px] gap-4 ">
+        <div className="w-full my-[10px] border-[0.5px] "></div>
+        <DropdownMenuGroup className="flex flex-wrap w-[537px] gap-3 ">
           {genres.map((genre, index) => {
             return (
               <DropdownMenuItem
-                className="rounded-2xl flex "
+                className="rounded-2xl  border-[0.1px]  justify-center items-center gap-1 text-[12px] font-semibold flex  "
                 key={index + Math.random()}
               >
-                <div className="rounded-2xl  border-[0.1px]  justify-center items-center gap-2 text-[12px] font-semibold flex pl-[10px] pr-[4px] py-[2px]">
+                <div className="justify-center items-center gap-1 text-[12px] font-semibold flex ">
                   <p>{genre.name}</p>
                   <svg
                     className="text-black dark:text-white "

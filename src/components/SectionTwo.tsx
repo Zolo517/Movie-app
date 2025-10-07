@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import { MovieCard } from "./MovieCard";
 import { movieType } from "@/lib/type";
 
@@ -22,7 +23,7 @@ export const SectionTwo = ({
         <div className="flex flex-col gap-8">
           <div className="flex justify-between items-center">
             <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
-            <button className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></button>
+            <Link className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></Link>
           </div>
 
           <div className="flex flex-wrap gap-8">
@@ -50,7 +51,7 @@ export const SectionTwo = ({
         </div>
 
         <div className="flex flex-wrap gap-8">
-          {movies.splice(0, 10).map((movie, index) => {
+          {/* {movies.splice(0, 10).map((movie, index) => {
             return (
               <MovieCard
                 isLoading={true}
@@ -61,7 +62,7 @@ export const SectionTwo = ({
                 movie={movie}
               />
             );
-          })}
+          })} */}
         </div>
       </div>
     );

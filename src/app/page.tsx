@@ -28,10 +28,10 @@ export default async function Home() {
 
   return (
     <div className="">
-      <SectionOne movies={carouselMovies} isLoading={true}></SectionOne>
+      <SectionOne movies={carouselMovies} isLoading={false}></SectionOne>
       <div className="px-20 w-full gap-8 mt-[52px]">
         <SectionTwo
-          isLoading={true}
+          isLoading={false}
           imgH={"340px"}
           width={"230px"}
           height={"439px"}
@@ -40,7 +40,7 @@ export default async function Home() {
         />
         <div className="mt-8">
           <SectionTwo
-            isLoading={true}
+            isLoading={false}
             imgH={"340px"}
             width={"230px"}
             height={"439px"}
@@ -51,7 +51,7 @@ export default async function Home() {
 
         <div className="mt-8">
           <SectionTwo
-            isLoading={true}
+            isLoading={false}
             imgH={"340px"}
             width={"230px"}
             height={"439px"}

@@ -2,6 +2,7 @@ import { movieType } from "@/lib/type";
 import { Card, CardContent } from "./ui/card";
 import { Rating } from "./Rating";
 import Link from "next/link";
+import Image from "next/image";
 
 export const MovieCard = ({
   isLoading,
@@ -16,9 +17,11 @@ export const MovieCard = ({
   h: string;
   movie: movieType;
 }) => {
+  const { id, poster_path, vote_average, title } = movie;
+
   if (isLoading) {
     return (
-      <Link href="/page2">
+      <Link href={`/details/${id}`}>
         <Card
           style={{ width: w, height: h }}
           className=" gap-1 overflow-hidden bg-[#F4F4F5] dark:bg-[#27272A]"
@@ -28,11 +31,16 @@ export const MovieCard = ({
   }
 
   return (
-    <Link href="/page2">
-      <Card style={{ width: w, height: h }} className=" gap-1 overflow-hidden ">
+    <Link href={`/details/${id}`}>
+      <Card
+        style={{ width: `${w}px`, height: `${h}px` }}
+        className=" gap-1 overflow-hidden "
+      >
         <CardContent>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          <Image
+            width={w}
+            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            alt="img"
             style={{ height: img }}
             className="w-full h-[77%] overflow-hidden"
           />
@@ -54,12 +62,12 @@ export const MovieCard = ({
                 />
               </svg>
               <Rating
-                rating={movie.vote_average}
+                rating={vote_average}
                 large={"14px"}
                 small={"12px"}
               ></Rating>
             </div>
-            <h3 className="text-[18px]">{movie.title}</h3>
+            <h3 className="text-[18px]">{title}</h3>
           </div>
         </CardContent>
       </Card>

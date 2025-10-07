@@ -2,14 +2,19 @@ import Image from "next/image";
 
 import { movieType } from "@/lib/type";
 import { Rating } from "@/components/Rating";
+import { BadgeButton } from "./BadgeButton";
+import { Buttons } from "./Buttons";
 
-export const FirstPart = () => {
+export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
+  // const {title, release_date, vote_average,vote_count,poster_path,backdrop_path,}= movieInfo
+  console.log(movieInfo.genres, "ssss");
+
   return (
     <div>
       <div className="flex justify-between h-fit">
         <div>
-          <h3 className="text-4xl font-bold">Wicked</h3>
-          <p>2024.11.26 · PG · 2h 40m</p>
+          <h3 className="text-4xl font-bold">{movieInfo.title}</h3>
+          <p>{movieInfo.release_date} · PG · 2h 40m</p>
         </div>
         <div>
           <h4 className="text-xs font-medium">Rating</h4>
@@ -30,25 +35,32 @@ export const FirstPart = () => {
               />
             </svg>
             <div>
-              <Rating rating={1} large={"18px"} small={"16px"}></Rating>
-              <p className="text-xs">37K</p>
+              <Rating
+                rating={movieInfo.vote_average}
+                large={"18px"}
+                small={"16px"}
+              ></Rating>
+              <p className="text-xs">{movieInfo.vote_count}</p>
             </div>
           </div>
         </div>
       </div>
       <div className="flex justify-between mt-6 mb-8">
         <Image
-          src={"/wicked.jpg"}
+          src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}`}
           alt="movie poster"
           width={290}
           height={428}
-        ></Image>
+        />
         <Image
-          src={"/wicked.jpg"}
+          src={`https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`}
           alt="trailer"
           width={760}
           height={428}
-        ></Image>
+        />
+      </div>
+      <div className="gap-3 flex">
+        <Buttons genres={movieInfo.genres}></Buttons>
       </div>
     </div>
   );

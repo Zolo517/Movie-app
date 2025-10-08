@@ -33,6 +33,7 @@ export type ratingType = {
 };
 export type genresType = {
   name: string;
+  id: number;
 };
 
 export type creditsType = {

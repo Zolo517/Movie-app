@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { MovieCard } from "./MovieCard";
-import { movieType } from "@/lib/type";
+import { genresType, movieType } from "@/lib/type";
 
 export const SectionTwo = ({
+  genreId,
   isLoading,
   movies,
   title,
@@ -10,6 +11,7 @@ export const SectionTwo = ({
   height,
   imgH,
 }: {
+  genreId: genresType[];
   isLoading: boolean;
   imgH: string;
   title: string;
@@ -17,6 +19,8 @@ export const SectionTwo = ({
   height: number;
   movies: movieType[];
 }) => {
+
+
   if (isLoading) {
     if (title === "Upcoming" && isLoading) {
       return (
@@ -72,7 +76,10 @@ export const SectionTwo = ({
     <div className="">
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">{title}</h3>
-        <button className="flex p-4 gap-2 items-center">
+        <Link
+          href={`/genresfilter/${genreId.id}`}
+          className="flex p-4 gap-2 items-center"
+        >
           <p className="text-[14px] font-medium">See more</p>
           <svg
             className="text-black dark:text-white"
@@ -90,7 +97,7 @@ export const SectionTwo = ({
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </Link>
       </div>
 
       <div className="flex flex-wrap gap-8 ">

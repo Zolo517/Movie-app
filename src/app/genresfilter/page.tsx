@@ -1,10 +1,22 @@
-import { FilteredMovies } from "@/app/genrefilter/_components/FilteredMovies";
+import { FilteredMovies } from "@/app/genresfilter/_components/FilteredMovies";
 import { MovieCard } from "@/components/MovieCard";
-import { Pagination } from "@/components/ui/pagination";
+
 import { genres } from "@/lib/constants";
 import { movieType } from "@/lib/type";
+import { axiosInstance } from "@/lib/utils";
 
-export default function Page3() {
+export default async function Page3({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
+  const getFilteredMovies = async (id: string) => {
+    const response = await axiosInstance.get(
+      " /discover/movie?language=en&with_genres=${genreIds}&page=${page}"
+    );
+    return response.data;
+  };
+  const filteredMovies = await getFilteredMovies(id);
   return (
     <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
       <h2 className="font-semibold text-3xl">Search Filter</h2>
@@ -42,7 +54,7 @@ export default function Page3() {
           </div>
         </div>
         <div className="border-[1px] mx-4"></div>
-        <FilteredMovies />
+        <FilteredMovies filteredMovies={filteredMovies} />
         {/* <Pagination></Pagination> */}
       </div>
     </div>

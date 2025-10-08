@@ -4,6 +4,7 @@ import { movieType } from "@/lib/type";
 import { Rating } from "@/components/Rating";
 import { BadgeButton } from "./BadgeButton";
 import { Buttons } from "./Buttons";
+import { getImageUrl } from "@/lib/utils";
 
 export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
   // const {title, release_date, vote_average,vote_count,poster_path,backdrop_path,}= movieInfo
@@ -50,13 +51,13 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
       </div>
       <div className="flex justify-between mt-6 mb-8">
         <Image
-          src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}`}
+          src={getImageUrl(movieInfo.poster_path)}
           alt="movie poster"
           width={290}
           height={428}
         />
         <Image
-          src={`https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`}
+          src={getImageUrl(movieInfo.backdrop_path, "original")}
           alt="trailer"
           width={760}
           height={428}

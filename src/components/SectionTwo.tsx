@@ -1,4 +1,4 @@
-import { Link } from "lucide-react";
+import Link from "next/link";
 import { MovieCard } from "./MovieCard";
 import { movieType } from "@/lib/type";
 
@@ -11,26 +11,26 @@ export const SectionTwo = ({
   imgH,
 }: {
   isLoading: boolean;
-  imgH: number;
+  imgH: string;
   title: string;
   width: number;
   height: number;
   movies: movieType[];
 }) => {
   if (isLoading) {
-    if (title === "Upcoming") {
+    if (title === "Upcoming" && isLoading) {
       return (
         <div className="flex flex-col gap-8">
           <div className="flex justify-between items-center">
             <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
-            <Link className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></Link>
+            <div className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></div>
           </div>
 
           <div className="flex flex-wrap gap-8">
-            {movies.splice(0, 10).map((movie, index) => {
+            {movies?.map((movie, index) => {
               return (
                 <MovieCard
-                  isLoading={true}
+                  isLoading={false}
                   img={imgH}
                   w={width}
                   h={height}
@@ -51,10 +51,10 @@ export const SectionTwo = ({
         </div>
 
         <div className="flex flex-wrap gap-8">
-          {movies.splice(0, 10).map((movie, index) => {
+          {movies?.splice(0, 10).map((movie: movieType, index: number) => {
             return (
               <MovieCard
-                isLoading={true}
+                isLoading={false}
                 img={imgH}
                 w={width}
                 h={height}
@@ -94,7 +94,7 @@ export const SectionTwo = ({
       </div>
 
       <div className="flex flex-wrap gap-8 ">
-        {movies.splice(0, 10).map((movie, index) => {
+        {movies?.splice(0, 10).map((movie, index) => {
           return (
             <MovieCard
               isLoading={false}

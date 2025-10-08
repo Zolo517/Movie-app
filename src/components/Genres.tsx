@@ -8,8 +8,16 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "./ui/dropdown-menu";
+import axios from "axios";
+import { axiosInstance } from "@/lib/utils";
 
-export const Genres = ({ genres }: { genres: genresType[] }) => {
+export async function Genres() {
+  const getGenres = async () => {
+    const response = await axiosInstance.get("/genre/movie/list?language=en");
+    return response.data;
+  };
+  const genres = getGenres();
+  console.log(genres, "genres");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="font-medium border-[1px] border-solid py2 px-4 rounded-[6px] flex items-center justify-center gap-2 ">
@@ -41,7 +49,7 @@ export const Genres = ({ genres }: { genres: genresType[] }) => {
 
         <div className="w-full my-[10px] border-[0.5px] "></div>
         <DropdownMenuGroup className="flex flex-wrap w-[537px] gap-3 ">
-          {genres.map((genre, index) => {
+          {/* {genres.map((genre: genresType, index: number) => {
             return (
               <DropdownMenuItem
                 className="rounded-2xl  border-[0.1px]  justify-center items-center gap-1 text-[12px] font-semibold flex  "
@@ -67,9 +75,9 @@ export const Genres = ({ genres }: { genres: genresType[] }) => {
                 </div>
               </DropdownMenuItem>
             );
-          })}
+          })} */}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
+}

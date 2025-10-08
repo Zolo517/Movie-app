@@ -12,7 +12,8 @@ export const MovieItem = ({ movie }: { movie: movieType }) => {
         movie.backdrop_path === "/gladiator.png"
           ? "bg-cover w-full h-150 bg-start flex items-center text-[#FFF]"
           : "bg-cover w-full h-150 bg-center flex items-center text-[#FFF]"
-      }>
+      }
+    >
       <div className="w-101 h-66 ml-35">
         <p className="text-[16px] ">Now Playing:</p>
         <h1 className="text-4xl font-bold">{movie.title}</h1>

@@ -34,3 +34,20 @@ export type ratingType = {
 export type genresType = {
   name: string;
 };
+
+export type creditsType = {
+  cast: castType[];
+  crew: crewType[];
+};
+
+export type castType = {
+  id: number;
+  job: string;
+  name: string;
+};
+
+export type crewType = {
+  id: number;
+  job: string;
+  name: string;
+};

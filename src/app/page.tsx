@@ -1,22 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { SectionOne } from "@/components/SectionOne";
-import { Footer } from "@/components/Footer";
 import { SectionTwo } from "@/components/SectionTwo";
-import { MovieSearchCard } from "@/components/MovieSearchCard";
-import * as constants from "@/lib/constants";
-import axios from "axios";
-import { movieCategoryType, movieType } from "@/lib/type";
+import { axiosInstance } from "@/lib/utils";
 
 export default async function Home() {
   const getMovies = async (category: string) => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
-      {
-        headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYjkwMWUzNTJlOTFkMmU1OTcyNThhYzU1ZDM2ZmZmMiIsIm5iZiI6MTc1OTA1MDY1Ny4zMjUsInN1YiI6IjY4ZDhmYmExOTBlY2QwMDlhYWI5YTFmZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MZd1y3tFFfxvZlPqBNIqCDw0G_aMwCZzWxffwENlwT8`,
-        },
-      }
+    const response = await axiosInstance.get(
+      `/movie/${category}?language=en-US&page=1`
     );
 
     return response.data.results;
@@ -32,7 +21,7 @@ export default async function Home() {
       <div className="px-20 w-full gap-8 mt-[52px]">
         <SectionTwo
           isLoading={false}
-          imgH={340}
+          imgH={"340px"}
           width={230}
           height={439}
           title={"Popular"}
@@ -41,18 +30,17 @@ export default async function Home() {
         <div className="mt-8">
           <SectionTwo
             isLoading={false}
-            imgH={340}
+            imgH={"340px"}
             width={230}
             height={439}
             title={"Upcoming"}
             movies={upcomingMovies}
           />
         </div>
-
         <div className="mt-8">
           <SectionTwo
             isLoading={false}
-            imgH={340}
+            imgH={"340px"}
             width={230}
             height={439}
             title={"Top Rated"}

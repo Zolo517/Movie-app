@@ -13,7 +13,7 @@ export const MovieCard = ({
 }: {
   isLoading: boolean;
   w: number;
-  img: number;
+  img: string;
   h: number;
   movie: movieType;
 }) => {
@@ -37,13 +37,11 @@ export const MovieCard = ({
         className=" gap-1 overflow-hidden "
       >
         <CardContent>
-          <Image
-            height={img}
-            width={w}
+          <img
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt="img"
-            style={{ height: img }}
-            className="w-full h-[77%] overflow-hidden"
+            style={{ height: img, width: `${w}px` }}
+            className=" overflow-hidden"
           />
           <div className=" p-2 h-full">
             <div className="flex gap-1 items-center">

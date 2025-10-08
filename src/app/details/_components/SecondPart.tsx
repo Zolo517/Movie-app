@@ -1,28 +1,24 @@
 import * as constants from "@/lib/constants";
 import { BadgeButton } from "./BadgeButton";
 import { movieType } from "@/lib/type";
+import { Buttons } from "./Buttons";
+import { Crew } from "./Crew";
 
-export const SecondPart = () => {
+export const SecondPart = ({
+  movie,
+  info,
+}: {
+  movie: movieType;
+  info: movieType;
+}) => {
   return (
     <div className="flex flex-col gap-5">
-     
-      <p className="text-base"></p>
+      <Buttons genres={movie.genres}></Buttons>
+      <p className="text-base">{movie.overview}</p>
       <div className="gap-1">
-        {/* {creditsInfo.map((person: string, index: number) => {
-          return (
-            <div key={index + Math.random()}>
-              <div className="flex gap-[53px] ">
-                <h4 className="w-16 h-7 text-base font-bold">{person.title}</h4>
-                <p className="text-base">{person.name}</p>
-              </div>
-              {person.title.length === 2 ? (
-                ""
-              ) : (
-                <div className="border-[0.5px] border-[#E4E4E7] w-full my-1"></div>
-              )}
-            </div>
-          );
-        })} */}
+        <Crew></Crew>
+        <Crew></Crew>
+        <Crew></Crew>
       </div>
     </div>
   );

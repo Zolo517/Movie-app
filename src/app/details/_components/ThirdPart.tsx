@@ -7,8 +7,8 @@ export const ThirdPart = ({}: {}) => {
     <div className="mt-8">
       {/* <SectionTwo
         isLoading={true}
-        width={"190px"}
-        height={"372px"}
+        width={190}
+        height={372}
         imgH={"281px"}
         title={"More Like This"}
         movies={movies}

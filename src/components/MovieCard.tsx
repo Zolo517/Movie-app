@@ -12,9 +12,9 @@ export const MovieCard = ({
   img,
 }: {
   isLoading: boolean;
-  w: string;
-  img: string;
-  h: string;
+  w: number;
+  img: number;
+  h: number;
   movie: movieType;
 }) => {
   const { id, poster_path, vote_average, title } = movie;
@@ -38,6 +38,7 @@ export const MovieCard = ({
       >
         <CardContent>
           <Image
+            height={img}
             width={w}
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt="img"

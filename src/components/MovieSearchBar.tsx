@@ -49,7 +49,7 @@ export const MovieSearchBar = () => {
           <MovieSearchContents value={value}></MovieSearchContents>
         </DropdownMenuContent>
       ) : (
-       ""
+        ""
       )}
     </DropdownMenu>
   );

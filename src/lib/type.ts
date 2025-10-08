@@ -19,6 +19,7 @@ export type movieType = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  runtime: number;
 };
 export type movieCategoryType = {
   category: string;

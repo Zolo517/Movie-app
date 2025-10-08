@@ -32,18 +32,18 @@ export default async function Home() {
       <div className="px-20 w-full gap-8 mt-[52px]">
         <SectionTwo
           isLoading={false}
-          imgH={"340px"}
-          width={"230px"}
-          height={"439px"}
+          imgH={340}
+          width={230}
+          height={439}
           title={"Popular"}
           movies={popularMovies}
         />
         <div className="mt-8">
           <SectionTwo
             isLoading={false}
-            imgH={"340px"}
-            width={"230px"}
-            height={"439px"}
+            imgH={340}
+            width={230}
+            height={439}
             title={"Upcoming"}
             movies={upcomingMovies}
           />
@@ -52,9 +52,9 @@ export default async function Home() {
         <div className="mt-8">
           <SectionTwo
             isLoading={false}
-            imgH={"340px"}
-            width={"230px"}
-            height={"439px"}
+            imgH={340}
+            width={230}
+            height={439}
             title={"Top Rated"}
             movies={topRatedMovies}
           />

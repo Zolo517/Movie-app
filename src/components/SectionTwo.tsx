@@ -11,10 +11,10 @@ export const SectionTwo = ({
   imgH,
 }: {
   isLoading: boolean;
-  imgH: string;
+  imgH: number;
   title: string;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
   movies: movieType[];
 }) => {
   if (isLoading) {
@@ -51,7 +51,7 @@ export const SectionTwo = ({
         </div>
 
         <div className="flex flex-wrap gap-8">
-          {/* {movies.splice(0, 10).map((movie, index) => {
+          {movies.splice(0, 10).map((movie, index) => {
             return (
               <MovieCard
                 isLoading={true}
@@ -62,7 +62,7 @@ export const SectionTwo = ({
                 movie={movie}
               />
             );
-          })} */}
+          })}
         </div>
       </div>
     );

@@ -1,22 +1,24 @@
-import { FilteredMovies } from "@/app/genresfilter/_components/FilteredMovies";
+import { FilteredMovies } from "@/app/genresfilter/[id]/_components/FilteredMovies";
 import { MovieCard } from "@/components/MovieCard";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 
 import { genresType, movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
+import Link from "next/link";
 
 export default async function Page3({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const getFilteredMovies = async (id: string) => {
-    const response = await axiosInstance.get(
-      ` /discover/movie?language=en&with_genres=${id}&page=${3}`
-    );
-    return response.data;
-  };
-  const filteredMovies = await getFilteredMovies(id);
-  console.log(filteredMovies, "filtered");
+  // const getFilteredMovies = async (id: string) => {
+  //   const response = await axiosInstance.get(
+  //     ` /discover/movie?language=en&with_genres=${id}&page=${3}`
+  //   );
+  //   return response.data;
+  // };
+  // const filteredMovies = await getFilteredMovies(id);
+  // console.log(filteredMovies, "filtered");
 
   const getGenreId = async () => {
     const response = await axiosInstance.get(`/genre/movie/list?language=en`);
@@ -37,7 +39,8 @@ export default async function Page3({
             {" "}
             {genreId.map((genre: genresType, index: number) => {
               return (
-                <div
+                <Link
+                  href={`/genresfilter/${genre.id}`}
                   key={index + Math.random()}
                   className="rounded-2xl  border-[0.1px]  justify-center items-center gap-2 text-[12px] font-semibold flex pl-[10px] pr-[4px] py-[2px]"
                 >
@@ -57,14 +60,37 @@ export default async function Page3({
                       strokeLinejoin="round"
                     />
                   </svg>
-                </div>
+                </Link>
               );
             })}
           </div>
         </div>
-        <div className="border-[1px] mx-4">{genreId.name}</div>
-        <FilteredMovies filteredMovies={filteredMovies} />
-        {/* <Pagination></Pagination> */}
+        <div className="border-[1px] mx-4"></div>
+        <FilteredMovies genres={genreId} />
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious href="#" />
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="#">1</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="#" isActive>
+                2
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="#">3</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationNext href="#" />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
       </div>
     </div>
   );

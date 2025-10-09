@@ -1,9 +1,9 @@
 import axios from "axios";
 
 import { movieType } from "@/lib/type";
-import { FirstPart } from "../_components/FirstPart";
-import { SecondPart } from "../_components/SecondPart";
-import { ThirdPart } from "../_components/ThirdPart";
+import { FirstPart } from "./_components/FirstPart";
+import { SecondPart } from "./_components/SecondPart";
+import { ThirdPart } from "./_components/ThirdPart";
 import { axiosInstance } from "@/lib/utils";
 
 export default async function Page({

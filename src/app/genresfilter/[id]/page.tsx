@@ -1,6 +1,14 @@
 import { FilteredMovies } from "@/app/genresfilter/[id]/_components/FilteredMovies";
 import { MovieCard } from "@/components/MovieCard";
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 import { genresType, movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
@@ -11,15 +19,6 @@ export default async function Page3({
 }: {
   params: { id: string };
 }) {
-  // const getFilteredMovies = async (id: string) => {
-  //   const response = await axiosInstance.get(
-  //     ` /discover/movie?language=en&with_genres=${id}&page=${3}`
-  //   );
-  //   return response.data;
-  // };
-  // const filteredMovies = await getFilteredMovies(id);
-  // console.log(filteredMovies, "filtered");
-
   const getGenreId = async () => {
     const response = await axiosInstance.get(`/genre/movie/list?language=en`);
     return response.data.genres;
@@ -66,7 +65,7 @@ export default async function Page3({
           </div>
         </div>
         <div className="border-[1px] mx-4"></div>
-        <FilteredMovies genres={genreId} />
+        <FilteredMovies id={id} genres={genreId} />
         <Pagination>
           <PaginationContent>
             <PaginationItem>

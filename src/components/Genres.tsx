@@ -1,5 +1,4 @@
 import { genresType } from "@/lib/type";
-
 import {
   DropdownMenuTrigger,
   DropdownMenu,

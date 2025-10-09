@@ -15,7 +15,7 @@ import { Search } from "lucide-react";
 import { genresType } from "@/lib/type";
 import { MovieSearchBar } from "./MovieSearchBar";
 
-export const Navigation = ({ genres }: { genres: genresType[] }) => {
+export const Navigation = () => {
   return (
     <div className="px-20 py-[11.5px] sticky top-0">
       <div className="flex justify-between items-center h-9 ">
@@ -23,7 +23,7 @@ export const Navigation = ({ genres }: { genres: genresType[] }) => {
           <Logo color="#4338CA" />
         </a>
         <div className="flex gap-3">
-          <Genres genres={genres} />
+          <Genres />
           <MovieSearchBar></MovieSearchBar>
         </div>
         <Theme></Theme>

@@ -10,14 +10,17 @@ import {
 } from "./ui/dropdown-menu";
 import axios from "axios";
 import { axiosInstance } from "@/lib/utils";
+import Link from "next/link";
 
 export async function Genres() {
-  const getGenres = async () => {
-    const response = await axiosInstance.get("/genre/movie/list?language=en");
-    return response.data;
+  const getGenreId = async () => {
+    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
+    return response.data.genres;
   };
-  const genres = getGenres();
-  console.log(genres, "genres");
+
+  const genreId = await getGenreId();
+  console.log(genreId, "genriin id shhuuuu");
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="font-medium border-[1px] border-solid py2 px-4 rounded-[6px] flex items-center justify-center gap-2 ">
@@ -39,7 +42,7 @@ export async function Genres() {
         Genre
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className=" w-[577px] h-[333px] border-[1px] border-[#E4E4E7] rounded-lg p-5  z-10 bg-[#FFF] dark:bg-[black]">
+      <DropdownMenuContent className=" w-[577px]  border-[1px] border-[#E4E4E7] rounded-lg p-5  z-10 bg-[#FFF] dark:bg-[black]">
         <DropdownMenuLabel>
           <div>
             <p className="font-semibold text-2xl ">Genres</p>
@@ -48,34 +51,39 @@ export async function Genres() {
         </DropdownMenuLabel>
 
         <div className="w-full my-[10px] border-[0.5px] "></div>
-        <DropdownMenuGroup className="flex flex-wrap w-[537px] gap-3 ">
-          {/* {genres.map((genre: genresType, index: number) => {
+        <DropdownMenuGroup className="flex flex-wrap  gap-3 ">
+          {genreId.map((genre: genresType, index: number) => {
             return (
-              <DropdownMenuItem
-                className="rounded-2xl  border-[0.1px]  justify-center items-center gap-1 text-[12px] font-semibold flex  "
+              <Link
+                href={`/genresfilter/${genre.id}`}
                 key={index + Math.random()}
               >
-                <div className="justify-center items-center gap-1 text-[12px] font-semibold flex ">
-                  <p>{genre.name}</p>
-                  <svg
-                    className="text-black dark:text-white "
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="10"
-                    viewBox="0 0 6 10"
-                    fill="none"
-                  >
-                    <path
-                      d="M1 9L5 5L1 1"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="rounded-2xl  border-[0.1px]  justify-center items-center gap-1 text-[12px] font-semibold flex  "
+                  key={index + Math.random()}
+                >
+                  <div className="justify-center items-center gap-1 text-[12px] font-semibold flex ">
+                    <p>{genre.name}</p>
+                    <svg
+                      className="text-black dark:text-white "
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="10"
+                      viewBox="0 0 6 10"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 9L5 5L1 1"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </DropdownMenuItem>
+              </Link>
             );
-          })} */}
+          })}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

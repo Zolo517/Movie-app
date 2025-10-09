@@ -15,19 +15,12 @@ export default async function Home() {
   const topRatedMovies = await getMovies("top_rated");
   const carouselMovies = await getMovies("now_playing");
 
-  const getGenreId = async () => {
-    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
-    return response.data.genres;
-  };
 
-  const genreId = await getGenreId();
-  console.log(genreId, "genriin id shhuuuu");
   return (
     <div className="">
       <SectionOne movies={carouselMovies} isLoading={false}></SectionOne>
       <div className="px-20 w-full gap-8 mt-[52px]">
         <SectionTwo
-          genreId={genreId}
           isLoading={false}
           imgH={"340px"}
           width={230}
@@ -37,7 +30,7 @@ export default async function Home() {
         />
         <div className="mt-8">
           <SectionTwo
-            genreId={genreId}
+
             isLoading={false}
             imgH={"340px"}
             width={230}
@@ -48,7 +41,7 @@ export default async function Home() {
         </div>
         <div className="mt-8">
           <SectionTwo
-            genreId={genreId}
+
             isLoading={false}
             imgH={"340px"}
             width={230}

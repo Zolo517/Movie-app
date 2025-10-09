@@ -2,6 +2,7 @@ import { genresType, movieType } from "@/lib/type";
 import { MovieCard } from "../../../../components/MovieCard";
 import * as constants from "@/lib/constants";
 import { axiosInstance } from "@/lib/utils";
+import { Pagi } from "./Pagi";
 
 export const FilteredMovies = async ({
   genres,
@@ -17,7 +18,7 @@ export const FilteredMovies = async ({
     return response.data;
   };
 
-  const filteredMovies:movieType[] = await getMovies(id);
+  const filteredMovies: movieType[] = await getMovies(id);
   console.log(filteredMovies, "filtered");
 
   return (
@@ -39,6 +40,7 @@ export const FilteredMovies = async ({
           );
         })}
       </div>
+      <Pagi></Pagi>
     </div>
   );
 };

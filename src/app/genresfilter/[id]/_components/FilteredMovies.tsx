@@ -6,14 +6,12 @@ import { MovieCard } from "@/components/MovieCard";
 export const FilteredMovies = async ({
   genres,
   id,
-  filteredMovies
+  filteredMovies,
 }: {
   genres: genresType[];
   id: string;
-  filteredMovies:movieType[]
+  filteredMovies: movieType[];
 }) => {
-
-
   return (
     <div>
       <h4 className="text-[20px] font-semibold mb-8">

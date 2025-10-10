@@ -1,4 +1,3 @@
-import * as constants from "@/lib/constants";
 import { BadgeButton } from "./BadgeButton";
 import { creditsType, movieType } from "@/lib/type";
 import { Buttons } from "./Buttons";
@@ -15,7 +14,7 @@ export const SecondPart = ({
 
   const director = crew.filter((c) => c.job.includes("Director"));
   const writer = crew.filter((c) => c.job.includes("Writer"));
-  const crewArr = [director, writer];
+ 
 
   return (
     <div className="flex flex-col gap-5">

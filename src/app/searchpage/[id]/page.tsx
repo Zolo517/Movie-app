@@ -1,43 +1,25 @@
-import { FilteredMovies } from "@/app/genresfilter/[id]/_components/FilteredMovies";
-import { MovieCard } from "@/components/MovieCard";
-
-import { genresType, movieType } from "@/lib/type";
+import { genresType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 
-export default async function Page3({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
-  const getGenreId = async () => {
-    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
-    return response.data.genres;
+export default function Home({ params: { id } }: { params: { id: string } }) {
+  const getGenres = async (id: string) => {
+    const res = await axiosInstance.get(`/genre/movie/list?language=en`);
+    return res.data.genres;
   };
-
-  const genreId = await getGenreId();
-  console.log(genreId, "genriin id shhuuuu");
-
-  const getMovies = async (id: string) => {
-    const response = await axiosInstance.get(
-      ` /discover/movie?language=en&with_genres=${id}&page=${1}`
-    );
-    return response.data;
-  };
-
-  const filteredMovies:movieType[] = await getMovies(id);
-  console.log(filteredMovies, "filtered");
+  const genreName = getGenres(id);
 
   return (
     <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
       <h2 className="font-semibold text-3xl">Search Filter</h2>
-      <div className="flex ">
-        <div>
+      <div className="flex gap-7">
+        <div className="border-[1px] mx-4"></div>
+        <div className="">
           <p className="font-semibold text-2xl ">Genres</p>
           <p className="text-[16px]"> See lists of movies by genre</p>
           <div className="flex flex-wrap  gap-4 w-[387px] mt-5">
             {" "}
-            {genreId.map((genre: genresType, index: number) => {
+            {/* {genreName.map((genre: genresType, index: number) => {
               return (
                 <Link
                   href={`/genresfilter/${genre.id}`}
@@ -62,15 +44,9 @@ export default async function Page3({
                   </svg>
                 </Link>
               );
-            })}
+            })} */}
           </div>
         </div>
-        <div className="border-[1px] mx-4"></div>
-        <FilteredMovies
-          id={id}
-          genres={genreId}
-          filteredMovies={filteredMovies}
-        />
       </div>
     </div>
   );

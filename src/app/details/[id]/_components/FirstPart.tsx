@@ -16,7 +16,8 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
         <div>
           <h3 className="text-4xl font-bold">{movieInfo.title}</h3>
           <p>
-            {movieInfo.release_date} · {movieInfo.adult ? "PG ·" : ""}{" "}
+            {movieInfo.release_date} · {movieInfo.adult ? "PG ·" : ""}
+            {"G · "}
             {Math.floor(movieInfo.runtime / 60)}h{}
           </p>
         </div>

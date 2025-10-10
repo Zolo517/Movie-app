@@ -13,17 +13,18 @@ export const SecondPart = ({
 }) => {
   const { cast, crew } = info;
 
-  crew.filter((c) => c.job.includes("Director"));
-  crew.filter((c) => c.job.includes("Writer"));
+  const director = crew.filter((c) => c.job.includes("Director"));
+  const writer = crew.filter((c) => c.job.includes("Writer"));
+  const crewArr = [director, writer];
 
   return (
     <div className="flex flex-col gap-5">
       <Buttons genres={movie.genres}></Buttons>
       <p className="text-base">{movie.overview}</p>
       <div className="gap-1">
-        <Crew h4={"Director"} crew={crew}></Crew>
-        <Crew h4={"Writers"} crew={crew}></Crew>
-        <Crew h4={"Stars"} cast={cast} crew={crew}></Crew>
+        <Crew h4={"Director"} director={director}></Crew>
+        <Crew h4={"Writers"} writer={writer}></Crew>
+        <Crew h4={"Stars"} cast={cast}></Crew>
       </div>
     </div>
   );

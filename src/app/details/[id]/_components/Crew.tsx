@@ -2,11 +2,13 @@ import { castType, crewType } from "@/lib/type";
 
 export const Crew = ({
   h4,
-  crew,
   cast,
+  writer,
+  director,
 }: {
+  writer?: crewType[];
+  director?: crewType[];
   h4: string;
-  crew: crewType[];
   cast?: castType[];
 }) => {
   return (
@@ -14,13 +16,33 @@ export const Crew = ({
       <div className="flex gap-[53px] ">
         <h4 className="w-16 h-7 text-base font-bold">{h4}</h4>
         <div className="flex  gap-4">
-          {cast?.splice(0, 4).map((c, index) => {
-            return (
-              <p key={index + Math.random()} className="text-base">
-                {c.name}
-              </p>
-            );
-          })}
+          {h4 === "Stars"
+            ? cast?.splice(0, 4).map((c, index) => {
+                return (
+                  <p key={index + Math.random()} className="text-base">
+                    {c.name}
+                  </p>
+                );
+              })
+            : ""}
+          {h4 === "Director"
+            ? director?.splice(0, 2).map((d, index) => (
+                <p key={index + Math.random()} className="text-base">
+                  {d.name}
+                </p>
+              ))
+            : ""}
+          {h4 === "Writers"
+            ? writer?.splice(0, 3).map((d, index) => (
+                <p key={index + Math.random()} className="text-base">
+                  {d.name}
+                </p>
+              ))
+            : director?.splice(0, 1).map((d, index) => (
+                <p key={index + Math.random()} className="text-base">
+                  {d.name}
+                </p>
+              ))}
         </div>
       </div>
       {h4 !== "Stars" ? (

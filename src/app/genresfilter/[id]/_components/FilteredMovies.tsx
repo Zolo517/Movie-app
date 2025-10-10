@@ -1,25 +1,18 @@
 import { genresType, movieType } from "@/lib/type";
-import { MovieCard } from "../../../../components/MovieCard";
-import * as constants from "@/lib/constants";
 import { axiosInstance } from "@/lib/utils";
 import { Pagi } from "./Pagi";
+import { MovieCard } from "@/components/MovieCard";
 
 export const FilteredMovies = async ({
   genres,
   id,
+  filteredMovies
 }: {
   genres: genresType[];
   id: string;
+  filteredMovies:movieType[]
 }) => {
-  const getMovies = async (id: string) => {
-    const response = await axiosInstance.get(
-      ` /discover/movie?language=en&with_genres=${id}&page=${1}`
-    );
-    return response.data;
-  };
 
-  const filteredMovies: movieType[] = await getMovies(id);
-  console.log(filteredMovies, "filtered");
 
   return (
     <div>

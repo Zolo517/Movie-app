@@ -34,3 +34,43 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## To do list
+
+```Setup
+- [x] Next app init
+- [x] Shadcn setup
+- [x] Created components
+- Pages
+- [x] Homepage
+- [x] Movie Detail page
+- [x] Genre filtered movies page
+- [x] Search bar
+- [ ] Movie Search Page
+- HomePage
+- [x] Navbar
+- [x] Carousel movies used shadcn carousel component
+- [x] created TMDB account
+- [x] API token --> backend entrance key
+- [x] .env folder --> protecting backend datas
+- [x] npm i axios --> installing axios
+- [x] Fetched API datas using axios
+- [x] Footer
+- Movie Detail page
+- [x] UI
+- [ ] Movie Trailer 
+- [x] fetched API datas
+- Genre filtered movies page
+- [x] UI
+- [ ] fetched API datas
+- [x] genres
+- Search bar
+- [x] UI
+- [ ] fetched API datas
+- Movie Search Page
+- [ ] UI
+- [ ] fetched API datas
+- Must
+- [ ] Movie app skeleton
+- [ ] Responsive Design
+- [ ] Deploy

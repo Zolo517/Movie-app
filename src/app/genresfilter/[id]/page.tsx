@@ -1,14 +1,5 @@
 import { FilteredMovies } from "@/app/genresfilter/[id]/_components/FilteredMovies";
 import { MovieCard } from "@/components/MovieCard";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 
 import { genresType, movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
@@ -26,6 +17,16 @@ export default async function Page3({
 
   const genreId = await getGenreId();
   console.log(genreId, "genriin id shhuuuu");
+
+  const getMovies = async (id: string) => {
+    const response = await axiosInstance.get(
+      ` /discover/movie?language=en&with_genres=${id}&page=1`
+    );
+    return response.data.results;
+  };
+
+  const filteredMovies = await getMovies(id);
+  console.log(filteredMovies, "filtered");
 
   return (
     <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
@@ -65,8 +66,11 @@ export default async function Page3({
           </div>
         </div>
         <div className="border-[1px] mx-4"></div>
-        <FilteredMovies id={id} genres={genreId} />
-        
+        <FilteredMovies
+          id={id}
+          genres={genreId}
+          filteredMovies={filteredMovies}
+        />
       </div>
     </div>
   );

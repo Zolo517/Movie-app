@@ -14,7 +14,7 @@ import { useState } from "react";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { SearchIcon } from "lucide-react";
 
-export const MovieSearchBar = () => {
+export const MovieSearchBar = () => {3
   const [value, setValue] = useState<string>("");
 
 

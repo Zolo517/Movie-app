@@ -41,6 +41,11 @@ export type creditsType = {
   crew: crewType[];
 };
 
+export type crew2Type = {
+  director: string
+  writer: string
+}
+
 export type castType = {
   id: number;
   job: string;

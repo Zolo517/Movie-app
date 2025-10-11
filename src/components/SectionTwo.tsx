@@ -16,7 +16,7 @@ export async function SectionTwo({
   title: string;
   width: number;
   height: number;
-  movies: movieType[];
+  movies?: movieType[];
 }) {
   const getGenreId = async () => {
     const response = await axiosInstance.get(`/genre/movie/list?language=en`);

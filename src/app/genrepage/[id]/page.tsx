@@ -6,15 +6,22 @@ export default async function HomePage({
 }: {
   params: { id: string };
 }) {
-
- const getMovies = async (category: string) => {
+  const getMovies = async (category: string) => {
     const response = await axiosInstance.get(
       `/movie/${category}?language=en-US&page=1`
     );
 
     return response.data.results;
   };
-const movieDatas = await getMovies("")
+  const movieDatas = await getMovies("");
+
+  const getSimilarMovies = async (id: string) => {
+    const response = await axiosInstance.get(
+      `/movie/${id}/similar?language=en-US&page=1`
+    );
+    return response.data.results;
+  };
+  const similarMovie = await getSimilarMovies(id);
 
   return (
     <div>

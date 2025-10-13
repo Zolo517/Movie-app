@@ -16,7 +16,7 @@ export default async function Page3({ searchParams }: page3Props) {
     return response.data.genres;
   };
 
-  const genreid = await getGenreId();
+  const genreid:genresType[] = await getGenreId();
   console.log(genreId, "genriin id shhuuuu");
 
   const getFilteredMovies = async () => {

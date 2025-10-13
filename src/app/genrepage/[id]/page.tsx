@@ -2,6 +2,7 @@ import { Pagi } from "@/app/genresfilter/_components/Pagi";
 import { SectionTwo } from "@/features/SectionTwo";
 import { idType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
+import { CategoryMovies } from "./_components/CategoryMovies";
 
 export default async function HomePage({
   params: { id },
@@ -15,18 +16,20 @@ export default async function HomePage({
 
     return response.data.results;
   };
+
   const movieDatas = await getMovies(id);
+  let title = "";
+  if (id === "popular") {
+    title = "Popular";
+  } else if (id === "upcoming") {
+    title = "Upcoming";
+  } else {
+    title = "Top Rated";
+  }
 
   return (
     <div className="px-20 mt-13">
-      <SectionTwo
-        isLoading={false}
-        imgH={"340px"}
-        width={230}
-        height={439}
-        title={id}
-        movies={movieDatas}
-      ></SectionTwo>
+      <CategoryMovies movies={movieDatas} title={title} />
       <Pagi />
     </div>
   );

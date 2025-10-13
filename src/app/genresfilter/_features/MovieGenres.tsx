@@ -1,7 +1,7 @@
 import { genresType } from "@/lib/type";
 import Link from "next/link";
 
-export const MovieGenres = ({ genres }: { genres: genresType[] }) => {
+export const MovieGenres = ({genres}:{genres:genresType[]}) => {
   return (
     <div>
       <p className="font-semibold text-2xl ">Genres</p>

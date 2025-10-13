@@ -4,16 +4,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
-import { NavigationMenu } from "./ui/navigation-menu";
-import { Input } from "./ui/input";
 
-import { Button } from "./ui/button";
-import { Logo } from "./Logo";
-import { Genres } from "./Genres";
-import { Theme } from "./Theme";
 import { Search } from "lucide-react";
 import { genresType } from "@/lib/type";
-import { MovieSearchBar } from "./MovieSearchBar";
+import { Logo } from "@/components/Logo";
+import { Genres } from "@/components/Genres";
+import { MovieSearchBar } from "@/components/MovieSearchBar";
+import { Theme } from "@/components/Theme";
 
 export const Navigation = () => {
   return (

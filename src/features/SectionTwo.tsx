@@ -9,7 +9,9 @@ export async function SectionTwo({
   width,
   height,
   imgH,
+  text,
 }: {
+  text?: string;
   isLoading: boolean;
   imgH: string;
   title: string;
@@ -18,7 +20,7 @@ export async function SectionTwo({
   movies?: movieType[];
 }) {
   if (isLoading) {
-    if (title === "Upcoming" && isLoading) {
+    if (title === "UPCOMING" && isLoading) {
       return (
         <div className="flex flex-col gap-8">
           <div className="flex justify-between items-center">
@@ -72,7 +74,10 @@ export async function SectionTwo({
     <div className="">
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">{title}</h3>
-        <div className="flex p-4 gap-2 items-center">
+        <Link
+          href={`/genrepage/${text}`}
+          className="flex p-4 gap-2 items-center"
+        >
           <p className="text-[14px] font-medium">See more</p>
           <svg
             className="text-black dark:text-white"
@@ -90,7 +95,7 @@ export async function SectionTwo({
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </Link>
       </div>
 
       <div className="flex flex-wrap gap-8 ">

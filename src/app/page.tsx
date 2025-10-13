@@ -38,6 +38,7 @@ export default async function Home() {
       <SectionOne movies={carouselMovies} isLoading={false}></SectionOne>
       <div className="px-20 w-full gap-8 mt-[52px]">
         <SectionTwo
+          text={"popular"}
           isLoading={false}
           imgH={"340px"}
           width={230}
@@ -47,6 +48,7 @@ export default async function Home() {
         />
         <div className="mt-8">
           <SectionTwo
+            text={"upcoming"}
             isLoading={false}
             imgH={"340px"}
             width={230}
@@ -57,6 +59,7 @@ export default async function Home() {
         </div>
         <div className="mt-8">
           <SectionTwo
+            text={"top_rated"}
             isLoading={false}
             imgH={"340px"}
             width={230}

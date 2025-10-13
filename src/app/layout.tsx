@@ -3,8 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/Theme-Provider";
 import { axiosInstance } from "@/lib/utils";
-import { Navigation } from "lucide-react";
+
 import { Footer } from "@/features/Footer";
+import { Navigation } from "@/features/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

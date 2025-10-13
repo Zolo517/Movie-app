@@ -2,12 +2,10 @@ import Image from "next/image";
 
 import { movieType } from "@/lib/type";
 import { Rating } from "@/components/Rating";
-import { BadgeButton } from "./BadgeButton";
-import { Buttons } from "./Buttons";
+
 import { getImageUrl } from "@/lib/utils";
 
 export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
-  // const {title, release_date, vote_average,vote_count,poster_path,backdrop_path,}= movieInfo
   console.log(movieInfo.genres, "ssss");
 
   return (
@@ -44,7 +42,7 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
                 rating={movieInfo.vote_average}
                 large={"18px"}
                 small={"16px"}
-              ></Rating>
+              />
               <p className="text-xs">{movieInfo.vote_count}k</p>
             </div>
           </div>

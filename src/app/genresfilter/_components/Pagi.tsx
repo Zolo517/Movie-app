@@ -10,7 +10,7 @@ import {
 
 export const Pagi = () => {
   return (
-    <Pagination>
+    <Pagination className="mt-8">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious href="#" />

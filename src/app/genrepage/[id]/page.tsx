@@ -3,36 +3,31 @@ import { SectionTwo } from "@/features/SectionTwo";
 import { idType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 
-export default async function HomePage({ params }: idType) {
-  const { id } = await params;
-  const getMovies = async (category: string) => {
+export default async function HomePage({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
+  const getMovies = async (id: string) => {
     const response = await axiosInstance.get(
-      `/movie/${category}?language=en-US&page=1`
+      `/movie/${id}?language=en-US&page=1`
     );
 
     return response.data.results;
   };
-  const movieDatas = await getMovies("");
-
-  const getSimilarMovies = async (id: string) => {
-    const response = await axiosInstance.get(
-      `/movie/${id}/similar?language=en-US&page=1`
-    );
-    return response.data.results;
-  };
-  const similarMovie = await getSimilarMovies(id);
+  const movieDatas = await getMovies(id);
 
   return (
-    <div>
+    <div className="px-20 mt-13">
       <SectionTwo
         isLoading={false}
         imgH={"340px"}
         width={230}
         height={439}
-        title={"Popular"}
+        title={id}
         movies={movieDatas}
       ></SectionTwo>
-      <Pagi></Pagi>
+      <Pagi />
     </div>
   );
 }

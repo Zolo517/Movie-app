@@ -1,11 +1,10 @@
-import { SectionTwo } from "@/components/SectionTwo";
+import { Pagi } from "@/app/genresfilter/_components/Pagi";
+import { SectionTwo } from "@/features/SectionTwo";
+import { idType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 
-export default async function HomePage({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function HomePage({ params }: idType) {
+  const { id } = await params;
   const getMovies = async (category: string) => {
     const response = await axiosInstance.get(
       `/movie/${category}?language=en-US&page=1`
@@ -33,6 +32,7 @@ export default async function HomePage({
         title={"Popular"}
         movies={movieDatas}
       ></SectionTwo>
+      <Pagi></Pagi>
     </div>
   );
 }

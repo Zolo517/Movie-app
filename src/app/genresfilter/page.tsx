@@ -1,32 +1,21 @@
-import { FilteredMovies } from "@/app/genresfilter/[id]/_components/FilteredMovies";
-import { MovieCard } from "@/components/MovieCard";
-
+import { FilteredMovies } from "@/app/genresfilter/_components/FilteredMovies";
 import { genresType, movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
+type page3Props = {
+  searchParams: Promise<{ genreId: string; genreName: string; page?: string }>;
+};
 
-export default async function Page3({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function Page3({ searchParams }: page3Props) {
+  const params = await searchParams;
+  const { genreId, genreName, page } = params;
   const getGenreId = async () => {
     const response = await axiosInstance.get(`/genre/movie/list?language=en`);
     return response.data.genres;
   };
 
-  const genreId = await getGenreId();
+  const genreid = await getGenreId();
   console.log(genreId, "genriin id shhuuuu");
-
-  const getMovies = async (id: string) => {
-    const response = await axiosInstance.get(
-      ` /discover/movie?language=en&with_genres=${id}&page=${1}`
-    );
-    return response.data;
-  };
-
-  const filteredMovies:movieType[] = await getMovies(id);
-  console.log(filteredMovies, "filtered");
 
   return (
     <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
@@ -37,10 +26,10 @@ export default async function Page3({
           <p className="text-[16px]"> See lists of movies by genre</p>
           <div className="flex flex-wrap  gap-4 w-[387px] mt-5">
             {" "}
-            {genreId.map((genre: genresType, index: number) => {
+            {genreid.map((genre: genresType, index: number) => {
               return (
                 <Link
-                  href={`/genresfilter/${genre.id}`}
+                  href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}&`}
                   key={index + Math.random()}
                   className="rounded-2xl  border-[0.1px]  justify-center items-center gap-2 text-[12px] font-semibold flex pl-[10px] pr-[4px] py-[2px]"
                 >
@@ -66,11 +55,7 @@ export default async function Page3({
           </div>
         </div>
         <div className="border-[1px] mx-4"></div>
-        <FilteredMovies
-          id={id}
-          genres={genreId}
-          filteredMovies={filteredMovies}
-        />
+        <FilteredMovies name={genreName} id={genreId} genres={genreid} />
       </div>
     </div>
   );

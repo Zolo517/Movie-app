@@ -1,16 +1,13 @@
 import axios from "axios";
 
-import { movieType } from "@/lib/type";
-import { FirstPart } from "./_components/FirstPart";
-import { SecondPart } from "./_components/SecondPart";
-import { ThirdPart } from "./_components/ThirdPart";
+import { idType, movieType } from "@/lib/type";
+import { ThirdPart } from "./_features/ThirdPart";
 import { axiosInstance } from "@/lib/utils";
+import { FirstPart } from "./_features/FirstPart";
+import { SecondPart } from "./_features/SecondPart";
 
-export default async function Page({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function Page({ params }: idType) {
+  const { id } = await params;
   const getMovies = async (id: string) => {
     const response = await axiosInstance.get(`/movie/${id}?language=en-US`);
     return response.data;

@@ -1,7 +1,6 @@
-import { BadgeButton } from "./BadgeButton";
 import { creditsType, movieType } from "@/lib/type";
-import { Buttons } from "./Buttons";
-import { Crew } from "./Crew";
+import { Buttons } from "../_components/Buttons";
+import { Crew } from "../_components/Crew";
 
 export const SecondPart = ({
   movie,
@@ -12,9 +11,8 @@ export const SecondPart = ({
 }) => {
   const { cast, crew } = info;
 
-  const director = crew.filter((c) => c.job.includes("Director"));
-  const writer = crew.filter((c) => c.job.includes("Writer"));
- 
+  const director = crew.filter((c) => c.department.includes("Directing"));
+  const writer = crew.filter((c) => c.department.includes("Writing"));
 
   return (
     <div className="flex flex-col gap-5">

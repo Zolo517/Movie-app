@@ -42,9 +42,9 @@ export type creditsType = {
 };
 
 export type crew2Type = {
-  director: string
-  writer: string
-}
+  director: string;
+  writer: string;
+};
 
 export type castType = {
   id: number;
@@ -54,6 +54,9 @@ export type castType = {
 
 export type crewType = {
   id: number;
-  job: string;
+  department: string;
   name: string;
+};
+export type idType = {
+  params: Promise<{ id: string }>;
 };

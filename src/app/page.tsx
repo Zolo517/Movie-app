@@ -1,5 +1,5 @@
-import { SectionOne } from "@/components/SectionOne";
-import { SectionTwo } from "@/components/SectionTwo";
+import { SectionOne } from "@/features/SectionOne";
+import { SectionTwo } from "@/features/SectionTwo";
 import { axiosInstance } from "@/lib/utils";
 
 export default async function Home() {
@@ -14,7 +14,24 @@ export default async function Home() {
   const upcomingMovies = await getMovies("upcoming");
   const topRatedMovies = await getMovies("top_rated");
   const carouselMovies = await getMovies("now_playing");
-
+  const categories = [
+    {
+      id: "popular",
+      movies: popularMovies,
+    },
+    {
+      id: "upcoming",
+      movies: upcomingMovies,
+    },
+    {
+      id: "top_rated",
+      movies: topRatedMovies,
+    },
+    {
+      id: "upcoming",
+      movies: popularMovies,
+    },
+  ];
 
   return (
     <div className="">
@@ -30,7 +47,6 @@ export default async function Home() {
         />
         <div className="mt-8">
           <SectionTwo
-
             isLoading={false}
             imgH={"340px"}
             width={230}
@@ -41,7 +57,6 @@ export default async function Home() {
         </div>
         <div className="mt-8">
           <SectionTwo
-
             isLoading={false}
             imgH={"340px"}
             width={230}

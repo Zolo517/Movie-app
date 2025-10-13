@@ -26,23 +26,19 @@ export const Crew = ({
               })
             : ""}
           {h4 === "Director"
-            ? director?.splice(0, 2).map((d, index) => (
+            ? director?.map((d, index) => (
                 <p key={index + Math.random()} className="text-base">
                   {d.name}
                 </p>
               ))
             : ""}
           {h4 === "Writers"
-            ? writer?.splice(0, 3).map((d, index) => (
+            ? writer?.splice(0, 3).map((w, index) => (
                 <p key={index + Math.random()} className="text-base">
-                  {d.name}
+                  {w.name}
                 </p>
               ))
-            : director?.splice(0, 1).map((d, index) => (
-                <p key={index + Math.random()} className="text-base">
-                  {d.name}
-                </p>
-              ))}
+            : ""}
         </div>
       </div>
       {h4 !== "Stars" ? (

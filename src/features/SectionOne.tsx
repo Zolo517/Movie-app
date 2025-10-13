@@ -3,15 +3,10 @@ import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { carouselMovie, movieType } from "@/lib/type";
-import { MovieItem } from "./MovieItem";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { MovieItem } from "@/components/MovieItem";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "./ui/carousel";
+
 
 export const SectionOne = ({
   movies,

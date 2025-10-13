@@ -1,4 +1,4 @@
-import { SectionTwo } from "@/components/SectionTwo";
+import { SectionTwo } from "@/features/SectionTwo";
 import { movieType } from "@/lib/type";
 
 export const ThirdPart = ({ movies }: { movies: movieType[] }) => {

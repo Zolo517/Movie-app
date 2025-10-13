@@ -7,7 +7,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "./ui/dropdown-menu";
-import axios from "axios";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 
@@ -54,7 +53,7 @@ export async function Genres() {
           {genreId.map((genre: genresType, index: number) => {
             return (
               <Link
-                href={`/genresfilter/${genre.id}`}
+                href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}`}
                 key={index + Math.random()}
               >
                 <DropdownMenuItem

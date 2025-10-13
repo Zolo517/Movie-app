@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { MovieCard } from "./MovieCard";
 import { genresType, movieType } from "@/lib/type";
-import { axiosInstance } from "@/lib/utils";
+import { MovieCard } from "@/components/MovieCard";
 
 export async function SectionTwo({
   isLoading,
@@ -18,14 +17,6 @@ export async function SectionTwo({
   height: number;
   movies?: movieType[];
 }) {
-  const getGenreId = async () => {
-    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
-    return response.data.genres;
-  };
-
-  const genreId = await getGenreId();
-  console.log(genreId, "genriin id shhuuuu");
-
   if (isLoading) {
     if (title === "Upcoming" && isLoading) {
       return (
@@ -56,10 +47,7 @@ export async function SectionTwo({
       <div className="flex flex-col gap-8 mt-8">
         <div className="flex justify-between items-center">
           <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
-          <div
-
-            className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"
-          ></div>
+          <div className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></div>
         </div>
 
         <div className="flex flex-wrap gap-8">
@@ -84,10 +72,7 @@ export async function SectionTwo({
     <div className="">
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">{title}</h3>
-        <div
-
-          className="flex p-4 gap-2 items-center"
-        >
+        <div className="flex p-4 gap-2 items-center">
           <p className="text-[14px] font-medium">See more</p>
           <svg
             className="text-black dark:text-white"

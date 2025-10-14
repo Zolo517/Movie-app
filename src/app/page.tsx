@@ -24,7 +24,7 @@ export default function Home() {
   console.log(data);
 
   if (error) {
-    <div>ERROR</div>;
+    <div>Something went wrong</div>;
   }
   if (isLoading) {
     return <HomePage />;

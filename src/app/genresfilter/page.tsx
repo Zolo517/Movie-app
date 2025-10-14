@@ -1,12 +1,10 @@
 import { FilteredMovies } from "@/app/genresfilter/_components/FilteredMovies";
-import { genresType, movieType } from "@/lib/type";
+import { genresType, movieType, page3Props } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 import { Header } from "./_features/Header";
 import { MovieGenres } from "./_features/MovieGenres";
-type page3Props = {
-  searchParams: Promise<{ genreId: string; genreName: string; page?: string }>;
-};
+
 
 export default async function Page3({ searchParams }: page3Props) {
   const params = await searchParams;

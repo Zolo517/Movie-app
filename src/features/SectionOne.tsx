@@ -3,10 +3,14 @@ import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { carouselMovie, movieType } from "@/lib/type";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { MovieItem } from "@/components/MovieItem";
-
-
 
 export const SectionOne = ({
   movies,
@@ -32,10 +36,10 @@ export const SectionOne = ({
       >
         <div className="relative">
           <CarouselContent>
-            {movies.map((movie, i) => {
+            {movies?.map((movie: movieType, i: number) => {
               return (
                 <CarouselItem key={i + Math.random()}>
-                  <MovieItem key={Math.random()} movie={movie}></MovieItem> 
+                  <MovieItem key={Math.random()} movie={movie}></MovieItem>
                 </CarouselItem>
               );
             })}

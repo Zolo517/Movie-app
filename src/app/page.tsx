@@ -1,73 +1,62 @@
+"use client";
+
+import { HomePage } from "@/components/skeleton/HomePage";
 import { SectionOne } from "@/features/SectionOne";
 import { SectionTwo } from "@/features/SectionTwo";
+import { movieArr, movieCategoryType, movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 
-export default async function Home() {
-  const getMovies = async (category: string) => {
-    const response = await axiosInstance.get(
+export default function Home() {
+  const fetchData = async (category: string) => {
+    const res = await axiosInstance.get(
       `/movie/${category}?language=en-US&page=1`
     );
-
-    return response.data.results;
+    return res.data;
   };
-  const popularMovies = await getMovies("popular");
-  const upcomingMovies = await getMovies("upcoming");
-  const topRatedMovies = await getMovies("top_rated");
-  const carouselMovies = await getMovies("now_playing");
-  const categories = [
-    {
-      id: "popular",
-      movies: popularMovies,
-    },
-    {
-      id: "upcoming",
-      movies: upcomingMovies,
-    },
-    {
-      id: "top_rated",
-      movies: topRatedMovies,
-    },
-    {
-      id: "upcoming",
-      movies: popularMovies,
-    },
-  ];
+  let category = "now_playing";
 
+  const { data, error, isLoading } = useSWR(category, () =>
+    fetchData(category)
+  );
+  console.log("data chin bnooo");
+  console.log(data);
+
+  if (error) {
+    <div>ERROR</div>;
+  }
+  if (isLoading) {
+    return <HomePage />;
+  }
   return (
     <div className="">
-      <SectionOne movies={carouselMovies} isLoading={false}></SectionOne>
+      <SectionOne movies={data.results} isLoading={false} />
       <div className="px-20 w-full gap-8 mt-[52px]">
-        <SectionTwo
-          text={"popular"}
-          isLoading={false}
+        {/* <SectionTwo
+          text={popularMovies}
           imgH={"340px"}
           width={230}
           height={439}
           title={"Popular"}
-          movies={popularMovies}
+          movies={data.results}
         />
-        <div className="mt-8">
-          <SectionTwo
-            text={"upcoming"}
-            isLoading={false}
-            imgH={"340px"}
-            width={230}
-            height={439}
-            title={"Upcoming"}
-            movies={upcomingMovies}
-          />
-        </div>
-        <div className="mt-8">
-          <SectionTwo
-            text={"top_rated"}
-            isLoading={false}
-            imgH={"340px"}
-            width={230}
-            height={439}
-            title={"Top Rated"}
-            movies={topRatedMovies}
-          />
-        </div>
+        <SectionTwo
+          text={upcomingMovies}
+          imgH={"340px"}
+          width={230}
+          height={439}
+          title={"Upcoming"}
+          movies={data.results}
+        />
+        <SectionTwo
+          text={topRated}
+          imgH={"340px"}
+          width={230}
+          height={439}
+          title={"Top Rated"}
+          movies={data.results}
+        /> */}
       </div>
     </div>
   );

@@ -13,10 +13,10 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
       <div className="flex justify-between h-fit">
         <div>
           <h3 className="text-4xl font-bold">{movieInfo.title}</h3>
-          <p>
+          <p className="mt-1">
             {movieInfo.release_date} · {movieInfo.adult ? "PG ·" : ""}
             {"G · "}
-            {Math.floor(movieInfo.runtime / 60)}h{}
+            {Math.floor(movieInfo.runtime / 60)}h {movieInfo.runtime % 60}m
           </p>
         </div>
         <div>

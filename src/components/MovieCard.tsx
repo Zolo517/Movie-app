@@ -5,30 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const MovieCard = ({
-  isLoading,
   movie,
   w,
   h,
   img,
 }: {
-  isLoading: boolean;
   w: number;
   img: string;
   h: number;
   movie: movieType;
 }) => {
   const { id, poster_path, vote_average, title } = movie;
-
-  if (isLoading) {
-    return (
-      <Link href={`/details/${id}`}>
-        <Card
-          style={{ width: w, height: h }}
-          className=" gap-1 overflow-hidden bg-[#F4F4F5] dark:bg-[#27272A]"
-        ></Card>
-      </Link>
-    );
-  }
 
   return (
     <Link href={`/details/${id}`}>

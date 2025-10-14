@@ -22,8 +22,8 @@ export type movieType = {
   runtime: number;
 };
 export type movieCategoryType = {
-  category: string;
-  movies: () => void;
+  name: string;
+  movies: string;
 };
 export type ratingType = {
   rating: number;
@@ -59,4 +59,11 @@ export type crewType = {
 };
 export type idType = {
   params: Promise<{ id: string }>;
+};
+export type page3Props = {
+  searchParams: Promise<{ genreId: string; genreName: string; page?: string }>;
+};
+
+export type movieArr = {
+  results: movieType[];
 };

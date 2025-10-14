@@ -5,7 +5,6 @@ export const ThirdPart = ({ movies }: { movies: movieType[] }) => {
   return (
     <div className="mt-8">
       <SectionTwo
-        isLoading={false}
         width={190}
         height={372}
         imgH={"281px"}

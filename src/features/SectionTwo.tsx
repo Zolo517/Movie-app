@@ -2,8 +2,7 @@ import Link from "next/link";
 import { genresType, movieType } from "@/lib/type";
 import { MovieCard } from "@/components/MovieCard";
 
-export async function SectionTwo({
-  isLoading,
+export function SectionTwo({
   movies,
   title,
   width,
@@ -12,66 +11,14 @@ export async function SectionTwo({
   text,
 }: {
   text?: string;
-  isLoading: boolean;
   imgH: string;
   title: string;
   width: number;
   height: number;
   movies?: movieType[];
 }) {
-  if (isLoading) {
-    if (title === "UPCOMING" && isLoading) {
-      return (
-        <div className="flex flex-col gap-8">
-          <div className="flex justify-between items-center">
-            <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
-            <div className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></div>
-          </div>
-
-          <div className="flex flex-wrap gap-8">
-            {movies?.map((movie, index) => {
-              return (
-                <MovieCard
-                  isLoading={false}
-                  img={imgH}
-                  w={width}
-                  h={height}
-                  key={index + Math.random()}
-                  movie={movie}
-                />
-              );
-            })}
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className="flex flex-col gap-8 mt-8">
-        <div className="flex justify-between items-center">
-          <h3 className="w-[250px] h-8 bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></h3>
-          <div className="flex p-4 gap-2 items-center w-[165px] bg-[#F4F4F5] dark:bg-[#27272A] rounded-3xl"></div>
-        </div>
-
-        <div className="flex flex-wrap gap-8">
-          {movies?.splice(0, 10).map((movie: movieType, index: number) => {
-            return (
-              <MovieCard
-                isLoading={false}
-                img={imgH}
-                w={width}
-                h={height}
-                key={index + Math.random()}
-                movie={movie}
-              />
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="">
+    <div className="mb-8">
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">{title}</h3>
         <Link
@@ -102,7 +49,6 @@ export async function SectionTwo({
         {movies?.splice(0, 10).map((movie, index) => {
           return (
             <MovieCard
-              isLoading={false}
               img={imgH}
               w={width}
               h={height}

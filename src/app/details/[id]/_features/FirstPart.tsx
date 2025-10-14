@@ -55,13 +55,21 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
           width={290}
           height={428}
         />
-        <Image
-          src={getImageUrl(movieInfo.backdrop_path, "original")}
-          alt="trailer"
-          width={760}
-          height={428}
-        />
+        <div
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path})`,
+          }}
+          className="bg-cover w-full h-150 bg-start flex items-center text-[#FFF]"
+        >
+          
+        </div>
       </div>
     </div>
   );
 };
+//<Image
+//   src={getImageUrl(movieInfo.backdrop_path, "original")}
+//   alt="trailer"
+//   width={760}
+//   height={428}
+// />

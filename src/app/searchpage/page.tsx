@@ -16,6 +16,8 @@ export const Page = async ({ searchParams }: page3Props) => {
   const genreid: genresType[] = await getGenreId();
   console.log(genreid, "genriin id shhuuuu");
 
+  //search page link href /searchpage?value=${inputValue}
+
   return (
     <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
       <Header />

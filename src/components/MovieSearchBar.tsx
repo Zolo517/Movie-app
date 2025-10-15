@@ -14,29 +14,23 @@ import { useState } from "react";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { SearchIcon } from "lucide-react";
 
-export const MovieSearchBar = () => {3
-  const [value, setValue] = useState<string>("");
+export const MovieSearchBar = () => {
+  const [inputValue, setInputValue] = useState<string>("");
 
-
-  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <InputGroup className="w-[379px]">
-          <InputGroupInput placeholder="Search..." />
+          <InputGroupInput  placeholder="Search..." />
           <InputGroupAddon>
             <SearchIcon />
           </InputGroupAddon>
         </InputGroup>
       </DropdownMenuTrigger>
 
-      {value === "wicked" ? (
-        <DropdownMenuContent>
-          <MovieSearchContents value={value}></MovieSearchContents>
-        </DropdownMenuContent>
-      ) : (
-        ""
-      )}
+      <DropdownMenuContent>
+        <MovieSearchContents value={inputValue}></MovieSearchContents>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };

@@ -1,15 +1,11 @@
- import {Skeleton} from "./ui/Skeleton"
+import { Skeleton } from "../ui/skeleton";
 
-
-
-export const DetailPage = ()=>{
-return (
-<div>
+export const DetailPage = () => {
+  return (
     <div>
-        <Skeleton   />
+      <div>
+        <Skeleton />
+      </div>
     </div>
-</div>
-
-
-)
-}
+  );
+};

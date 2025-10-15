@@ -1,12 +1,10 @@
-"use client";
-
-import { SectionTwo } from "@/components/SectionTwo";
-import { movieType } from "@/lib/type";
-import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
+import { SectionTwo } from "./SectionTwo";
 import useSWR from "swr";
+import { axiosInstance } from "@/lib/utils";
+import { Section } from "./skeleton/Section";
 
-export const ThirdPart = () => {
+export const PopularMovies = () => {
   const fetchData = async () => {
     const res = await axiosInstance.get(`/movie/popular?language=en-US&page=1`);
     return res.data;
@@ -23,7 +21,11 @@ export const ThirdPart = () => {
     <div>Something went wrong</div>;
   }
   if (isLoading) {
-    return;
+    return (
+      <div className="mt-13">
+        <Section />;
+      </div>
+    );
   }
   return (
     <div className="mb-8">

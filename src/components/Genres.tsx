@@ -16,6 +16,7 @@ export async function Genres() {
     return response.data.genres;
   };
 
+
   const genreId = await getGenreId();
   console.log(genreId, "genriin id shhuuuu");
 

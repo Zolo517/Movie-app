@@ -19,7 +19,6 @@ export const CategoryMovies = ({
         {movies?.splice(0, 20).map((movie, index) => {
           return (
             <MovieCard
-              isLoading={false}
               img={"340px"}
               w={230}
               h={439}

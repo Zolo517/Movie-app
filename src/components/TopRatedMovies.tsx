@@ -1,19 +1,19 @@
-"use client";
-
-import { SectionTwo } from "@/components/SectionTwo";
-import { movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 import useSWR from "swr";
+import { SectionTwo } from "./SectionTwo";
+import { Section } from "./skeleton/Section";
 
-export const ThirdPart = () => {
+export const TopRatedMovies = () => {
   const fetchData = async () => {
-    const res = await axiosInstance.get(`/movie/popular?language=en-US&page=1`);
+    const res = await axiosInstance.get(
+      `/movie/top_rated?language=en-US&page=1`
+    );
     return res.data;
   };
 
   const { data, error, isLoading } = useSWR(
-    `/movie/popular?language=en-US&page=1`,
+    `/movie/top_rated?language=en-US&page=1`,
     () => fetchData()
   );
   console.log("data chin bnooo");
@@ -23,12 +23,12 @@ export const ThirdPart = () => {
     <div>Something went wrong</div>;
   }
   if (isLoading) {
-    return;
+    return <Section />;
   }
   return (
     <div className="mb-8">
       <div className="flex justify-between items-center ">
-        <h3 className="text-2xl font-semibold">Popular</h3>
+        <h3 className="text-2xl font-semibold">Top Rated</h3>
         <Link
           href={`/genrepage/?page=`}
           className="flex p-4 gap-2 items-center"

@@ -1,5 +1,5 @@
 import { Pagi } from "@/app/genresfilter/_components/Pagi";
-import { SectionTwo } from "@/features/SectionTwo";
+import { SectionTwo } from "@/components/SectionTwo";
 import { idType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import { CategoryMovies } from "./_components/CategoryMovies";

@@ -41,9 +41,8 @@ export const MovieItem = ({ movie }: { movie: movieType }) => {
           ></Rating>
         </div>
         <p className="w-[302px] my-4 text-[12px]">{movie.overview}</p>
-      <Link >
-            <TraillerButton  />
-      </Link>
+
+        <TraillerButton />
       </div>
     </div>
   );

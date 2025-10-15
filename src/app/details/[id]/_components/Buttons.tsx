@@ -6,7 +6,7 @@ export const Buttons = ({ genres }: { genres: any }) => {
     <div className="gap-3 flex">
       {genres.map((genre: any, i: number) => {
         return (
-          <Link
+          <Link key={i + Math.random()}
             href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}`}
           >
             <BadgeButton key={i + Math.random()}>{genre.name}</BadgeButton>

@@ -41,11 +41,8 @@ export const Crew = ({
             : ""}
         </div>
       </div>
-      {h4 !== "Stars" ? (
-        <div className="w-full my-4 border-[0.5px] "></div>
-      ) : (
-        ""
-      )}
+
+      <div className="w-full my-4 border-[0.5px] "></div>
     </div>
   );
 };

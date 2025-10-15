@@ -9,7 +9,6 @@ export function SectionTwo({
   width,
   height,
   imgH,
-
 }: {
   splice: number;
 
@@ -20,21 +19,18 @@ export function SectionTwo({
   movies: movieType[];
 }) {
   return (
-
-
-      <div className="flex flex-wrap gap-8 ">
-        {movies?.splice(0, splice).map((movie, index) => {
-          return (
-            <MovieCard
-              img={imgH}
-              w={width}
-              h={height}
-              key={index + Math.random()}
-              movie={movie}
-            />
-          );
-        })}
-      </div>
-   
+    <div className="flex flex-wrap gap-8 mt-8">
+      {movies?.splice(0, splice).map((movie, index) => {
+        return (
+          <MovieCard
+            img={imgH}
+            w={width}
+            h={height}
+            key={index + Math.random()}
+            movie={movie}
+          />
+        );
+      })}
+    </div>
   );
 }

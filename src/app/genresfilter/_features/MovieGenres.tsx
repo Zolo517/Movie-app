@@ -11,7 +11,7 @@ export const MovieGenres = ({genres}:{genres:genresType[]}) => {
         {genres.map((genre: genresType, index: number) => {
           return (
             <Link
-              href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}&`}
+              href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}`}
               key={index + Math.random()}
               className="rounded-2xl  border-[0.1px]  justify-center items-center gap-2 text-[12px] font-semibold flex pl-[10px] pr-[4px] py-[2px]"
             >

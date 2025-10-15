@@ -28,7 +28,7 @@ export const ThirdPart = () => {
   return (
     <div className="mb-8">
       <div className="flex justify-between items-center ">
-        <h3 className="text-2xl font-semibold">Popular</h3>
+        <h3 className="text-2xl font-semibold">More Like This</h3>
         <Link
           href={`/genrepage/?page=`}
           className="flex p-4 gap-2 items-center"
@@ -53,10 +53,10 @@ export const ThirdPart = () => {
         </Link>
       </div>
       <SectionTwo
-        splice={10}
-        imgH={"340px"}
-        width={230}
-        height={439}
+        splice={5}
+        imgH={"281px"}
+        width={190}
+        height={372}
         movies={data.results}
       />
     </div>

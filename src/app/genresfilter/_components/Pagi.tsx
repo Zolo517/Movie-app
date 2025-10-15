@@ -8,7 +8,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export const Pagi = () => {
+export const Pagi = ({total_pages}:{total_pages:number}) => {
   return (
     <Pagination className="mt-8">
       <PaginationContent>
@@ -30,7 +30,7 @@ export const Pagi = () => {
           <PaginationEllipsis />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" />
+          <PaginationNext href="/genresfilter?genreId=37&genreName=Western&page=" />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

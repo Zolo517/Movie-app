@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Header } from "./_features/Header";
 import { MovieGenres } from "./_features/MovieGenres";
 
-
 export default async function Page3({ searchParams }: page3Props) {
   const params = await searchParams;
   const { genreId, genreName, page } = params;
@@ -14,14 +13,14 @@ export default async function Page3({ searchParams }: page3Props) {
     return response.data.genres;
   };
 
-  const genreid:genresType[] = await getGenreId();
+  const genreid: genresType[] = await getGenreId();
   console.log(genreId, "genriin id shhuuuu");
 
   const getFilteredMovies = async () => {
     const response = await axiosInstance.get(
-      `/discover/movie?language=en&with_genres=${genreId}&page=1`
+      `/discover/movie?language=en&with_genres=${genreId}&page=${1}`
     );
-    return response.data.results;
+    return response.data;
   };
 
   const filteredMovies = await getFilteredMovies();

@@ -67,3 +67,9 @@ export type page3Props = {
 export type movieArr = {
   results: movieType[];
 };
+
+export type filtersType = {
+  results: movieType[];
+  total_results: number;
+  total_pages: number;
+};

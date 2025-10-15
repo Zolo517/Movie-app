@@ -48,7 +48,7 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mt-6 mb-8">
+      <div className="flex justify-between gap-8 mt-6 mb-8">
         <Image
           src={getImageUrl(movieInfo.poster_path)}
           alt="movie poster"
@@ -59,10 +59,8 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path})`,
           }}
-          className="bg-cover w-full h-150 bg-start flex items-center text-[#FFF]"
-        >
-          
-        </div>
+          className="bg-cover h-[428px] w-full  bg-center  flex items-center text-[#FFF]"
+        ></div>
       </div>
     </div>
   );

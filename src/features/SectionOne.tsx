@@ -31,7 +31,7 @@ export const SectionOne = () => {
   console.log(data);
 
   if (error) {
-    <div>Something went wrong</div>;
+    <div>Something went wrong at Zoloo's yambii website xD</div>;
   }
   if (isLoading) {
     return <Skeleton className="w-full h-150 mt-6" />;

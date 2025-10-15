@@ -11,7 +11,7 @@ import { MovieCategories } from "@/features/MovieCategories";
 
 export default function Home() {
   // Feature bolgon deeree useSWr ashiglah
-
+// Zoloogin yambii site aslaaa
   return (
     <div className="">
       <SectionOne />

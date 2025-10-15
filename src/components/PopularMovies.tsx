@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { axiosInstance } from "@/lib/utils";
 import { Section } from "./skeleton/Section";
 
-export const PopularMovies = () => {
+export const PopularMovies = ({ text }: { text: string }) => {
   const fetchData = async () => {
     const res = await axiosInstance.get(`/movie/popular?language=en-US&page=1`);
     return res.data;
@@ -32,7 +32,7 @@ export const PopularMovies = () => {
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">Popular</h3>
         <Link
-          href={`/genrepage/?page=`}
+          href={`/genrepage/${text}`}
           className="flex p-4 gap-2 items-center"
         >
           <p className="text-[14px] font-medium">See more</p>

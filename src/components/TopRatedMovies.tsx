@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { SectionTwo } from "./SectionTwo";
 import { Section } from "./skeleton/Section";
 
-export const TopRatedMovies = () => {
+export const TopRatedMovies = ({ text }: { text: string }) => {
   const fetchData = async () => {
     const res = await axiosInstance.get(
       `/movie/top_rated?language=en-US&page=1`
@@ -30,7 +30,7 @@ export const TopRatedMovies = () => {
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">Top Rated</h3>
         <Link
-          href={`/genrepage/?page=`}
+          href={`/genrepage/${text}`}
           className="flex p-4 gap-2 items-center"
         >
           <p className="text-[14px] font-medium">See more</p>

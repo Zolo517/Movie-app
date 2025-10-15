@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { SectionTwo } from "./SectionTwo";
 import { Section } from "./skeleton/Section";
 
-export const UpcomingMovies = () => {
+export const UpcomingMovies = ({ text }: { text: string }) => {
   const fetchData = async () => {
     const res = await axiosInstance.get(
       `/movie/upcoming?language=en-US&page=1`
@@ -29,10 +29,7 @@ export const UpcomingMovies = () => {
     <div className="mb-8">
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">Upcoming</h3>
-        <Link
-          href={`/genrepage/?page=`}
-          className="flex p-4 gap-2 items-center"
-        >
+        <Link href={`/genrepage/${text}`} className="flex p-4 gap-2 items-center">
           <p className="text-[14px] font-medium">See more</p>
           <svg
             className="text-black dark:text-white"

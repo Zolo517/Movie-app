@@ -31,7 +31,7 @@ export default async function Page3({ searchParams }: page3Props) {
       <Header />
       <div className="flex ">
         <MovieGenres genres={genreid} />
-        <div className="border-[1px] mx-4"></div>
+        <div className="border-[1px] mx-8"></div>
         <FilteredMovies filters={filteredMovies} genreName={genreName} />
       </div>
     </div>

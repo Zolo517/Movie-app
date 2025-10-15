@@ -27,7 +27,7 @@ export const SectionOne = () => {
     `/movie/now_playing?language=en-US&page=1`,
     () => fetchData()
   );
-  console.log("data chin bnooo");
+  console.log("data chin bish bnooo");
   console.log(data);
 
   if (error) {

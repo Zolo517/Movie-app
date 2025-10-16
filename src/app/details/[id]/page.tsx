@@ -39,7 +39,7 @@ export default async function Page({ params }: idType) {
     <div className="px-45 pt-13 pb-[113px]">
       <FirstPart movieInfo={movieDetail}></FirstPart>
       <SecondPart movie={movieDetail} info={creditsInfo}></SecondPart>
-      <ThirdPart movies={similarMovie.results}></ThirdPart>
+      <ThirdPart></ThirdPart>
     </div>
   );
 }

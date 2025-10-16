@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/genrepage"
+    "src/app/category"
   ],
   "exclude": ["node_modules"]
 }

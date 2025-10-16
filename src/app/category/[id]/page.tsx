@@ -14,10 +14,11 @@ export default async function HomePage({
       `/movie/${id}?language=en-US&page=1`
     );
 
-    return response.data.results;
+    return response.data;
   };
 
   const movieDatas = await getMovies(id);
+  console.log(movieDatas, "datadatadata");
   let title = "";
   if (id === "popular") {
     title = "Popular";
@@ -30,7 +31,7 @@ export default async function HomePage({
   return (
     <div className="px-20 mt-13">
       <CategoryMovies movies={movieDatas} title={title} />
-      <Pagi />
+      {/* <Pagi /> */}
     </div>
   );
 }

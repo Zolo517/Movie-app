@@ -1,6 +1,7 @@
+import { movieType } from "@/lib/type";
 import { Rating } from "./Rating";
 
-export const MovieSearchCard = () => {
+export const MovieSearchCard = ({ movie }: { movie: movieType }) => {
   return (
     <div className="flex w-[553px] p-2 gap-4">
       <img src="/wicked.jpg" alt="" className="w-[67px] h-[100px] " />

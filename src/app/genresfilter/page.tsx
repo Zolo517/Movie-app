@@ -32,7 +32,11 @@ export default async function Page3({ searchParams }: page3Props) {
       <div className="flex ">
         <MovieGenres genres={genreid} />
         <div className="border-[1px] mx-8"></div>
-        <FilteredMovies filters={filteredMovies} genreName={genreName} />
+        <FilteredMovies
+          genreId={genreId}
+          filters={filteredMovies}
+          genreName={genreName}
+        />
       </div>
     </div>
   );

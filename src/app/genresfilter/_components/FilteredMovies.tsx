@@ -6,8 +6,10 @@ import { MovieCard } from "@/components/MovieCard";
 export const FilteredMovies = async ({
   filters,
   genreName,
+  genreId,
 }: {
   genreName: string;
+  genreId: string;
   filters: filtersType;
 }) => {
   const { results, total_results, total_pages } = filters;
@@ -20,16 +22,17 @@ export const FilteredMovies = async ({
         {results?.splice(0, 12).map((movie: movieType, index: number) => {
           return (
             <MovieCard
-              img={"281px"}
-              w={190}
-              h={372}
+              img={"244px"}
+              w={165}
+              h={331}
+              h3={"16px"}
               key={index + Math.random()}
               movie={movie}
             />
           );
         })}
       </div>
-      <Pagi total_pages={total_pages} />
+      {/* <Pagi genreId={genreId} genreName={genreName} total_pages={total_pages} /> */}
     </div>
   );
 };

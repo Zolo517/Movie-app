@@ -14,14 +14,14 @@ import { Theme } from "@/components/Theme";
 
 export const Navigation = () => {
   return (
-    <div className="px-20 py-[11.5px] sticky top-0">
+    <div className="px-20 py-[11.5px] sticky top-0 bg-white dark:bg-[#020618]">
       <div className="flex justify-between items-center h-9 ">
         <a href="http://localhost:3000/">
           <Logo color="#4338CA" />
         </a>
         <div className="flex gap-3">
           <Genres />
-          <MovieSearchBar></MovieSearchBar>
+          <MovieSearchBar/>
         </div>
         <Theme></Theme>
       </div>

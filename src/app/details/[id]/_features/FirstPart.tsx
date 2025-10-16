@@ -4,6 +4,7 @@ import { movieType } from "@/lib/type";
 import { Rating } from "@/components/Rating";
 
 import { getImageUrl } from "@/lib/utils";
+import { TraillerButton } from "@/components/TrailerButton";
 
 export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
   console.log(movieInfo.genres, "ssss");
@@ -60,7 +61,9 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path})`,
           }}
           className="bg-cover h-[428px] w-full  bg-center  flex items-center text-[#FFF]"
-        ></div>
+        >
+          <TraillerButton id={movieInfo.id} />
+        </div>
       </div>
     </div>
   );

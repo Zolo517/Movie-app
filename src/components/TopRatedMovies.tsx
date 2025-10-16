@@ -16,7 +16,7 @@ export const TopRatedMovies = ({ text }: { text: string }) => {
     `/movie/top_rated?language=en-US&page=1`,
     () => fetchData()
   );
-  console.log("data chin bnooo");
+  console.log("top rated");
   console.log(data);
 
   if (error) {
@@ -30,7 +30,7 @@ export const TopRatedMovies = ({ text }: { text: string }) => {
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">Top Rated</h3>
         <Link
-          href={`/genrepage/${text}`}
+          href={`/category/${text}`}
           className="flex p-4 gap-2 items-center"
         >
           <p className="text-[14px] font-medium">See more</p>

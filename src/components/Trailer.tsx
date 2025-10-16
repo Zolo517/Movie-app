@@ -1,10 +1,17 @@
-import React from "react"
-import ReactPlayer from 'react-player'
+"use client";
 
-export const Trailer =()=>{
-    return(
-        <div>
-            <ReactPlayer src={`https://www.youtube.com/watch?v=`} />
-        </div>
-    )
-} 
+import { dataType } from "@/lib/type";
+import { axiosInstance } from "@/lib/utils";
+import React from "react";
+import ReactPlayer from "react-player";
+import useSWR from "swr";
+
+
+export const Trailer = ({ data }: { data: dataType }) => {
+    const {key}= data
+  return (
+    <div>
+      <ReactPlayer src={`https://www.youtube.com/watch?v=${key}`} />
+    </div>
+  );
+};

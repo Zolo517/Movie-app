@@ -23,6 +23,7 @@ export function SectionTwo({
       {movies?.splice(0, splice).map((movie, index) => {
         return (
           <MovieCard
+            h3="18px"
             img={imgH}
             w={width}
             h={height}

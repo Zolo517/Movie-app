@@ -42,7 +42,7 @@ export const MovieItem = ({ movie }: { movie: movieType }) => {
         </div>
         <p className="w-[302px] my-4 text-[12px]">{movie.overview}</p>
 
-        <TraillerButton />
+        <TraillerButton id={movie.id} />
       </div>
     </div>
   );

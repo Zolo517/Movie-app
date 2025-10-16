@@ -52,7 +52,7 @@ export const SectionOne = () => {
             {data.results?.map((movie: movieType, i: number) => {
               return (
                 <CarouselItem key={i + Math.random()}>
-                  <MovieItem key={Math.random()} movie={movie}></MovieItem>
+                  <MovieItem key={Math.random()} movie={movie}/>
                 </CarouselItem>
               );
             })}

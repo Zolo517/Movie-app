@@ -9,8 +9,10 @@ export const MovieCard = ({
   w,
   h,
   img,
+  h3,
 }: {
   w: number;
+  h3: string;
   img: string;
   h: number;
   movie: movieType;
@@ -30,7 +32,7 @@ export const MovieCard = ({
             style={{ height: img, width: `${w}px` }}
             className=" overflow-hidden"
           />
-          <div className=" p-2 h-full">
+          <div className="py-1 px-2 h-full">
             <div className="flex gap-1 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,13 +49,9 @@ export const MovieCard = ({
                   strokeLinejoin="round"
                 />
               </svg>
-              <Rating
-                rating={vote_average}
-                large={"14px"}
-                small={"12px"}
-              ></Rating>
+              <Rating rating={vote_average} large={"14px"} small={"12px"} />
             </div>
-            <h3 className="text-[18px]">{title}</h3>
+            <h3 style={{ fontSize: h3 }}>{title}</h3>
           </div>
         </CardContent>
       </Card>

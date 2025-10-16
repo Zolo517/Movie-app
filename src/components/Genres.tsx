@@ -53,7 +53,7 @@ export async function Genres() {
           {genreId.map((genre: genresType, index: number) => {
             return (
               <Link
-                href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}`}
+                href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}&page=`}
                 key={index + Math.random()}
               >
                 <DropdownMenuItem

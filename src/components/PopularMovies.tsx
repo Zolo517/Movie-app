@@ -32,7 +32,7 @@ export const PopularMovies = ({ text }: { text: string }) => {
       <div className="flex justify-between items-center ">
         <h3 className="text-2xl font-semibold">Popular</h3>
         <Link
-          href={`/genrepage/${text}`}
+          href={`/category/${text}`}
           className="flex p-4 gap-2 items-center"
         >
           <p className="text-[14px] font-medium">See more</p>

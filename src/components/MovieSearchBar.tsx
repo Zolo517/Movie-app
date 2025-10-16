@@ -21,7 +21,11 @@ export const MovieSearchBar = () => {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <InputGroup className="w-[379px]">
-          <InputGroupInput  placeholder="Search..." />
+          <InputGroupInput
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Search..."
+          />
           <InputGroupAddon>
             <SearchIcon />
           </InputGroupAddon>
@@ -29,7 +33,7 @@ export const MovieSearchBar = () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent>
-        <MovieSearchContents value={inputValue}></MovieSearchContents>
+        <MovieSearchContents value={inputValue}/>
       </DropdownMenuContent>
     </DropdownMenu>
   );

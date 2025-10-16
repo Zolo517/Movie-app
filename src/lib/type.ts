@@ -73,3 +73,7 @@ export type filtersType = {
   total_results: number;
   total_pages: number;
 };
+
+export type dataType = {
+  key: string;
+};

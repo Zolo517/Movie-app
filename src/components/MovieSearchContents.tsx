@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,11 +23,13 @@ export const MovieSearchContents = ({ value }: { value: string }) => {
     () => fetchData()
   );
 
+
   return (
     <div className="p-3">
-      {data.results.map((movie: movieType) => {
-        return <MovieSearchCard movie={movie} />;
-      })}
+      {datas.title.includes(value) &&
+        datas?.map((movie: movieType) => {
+          return <MovieSearchCard movie={movie} />;
+        })}
       <div className="border-[0.5px] border-[#E4E4E7] my-2"></div>
 
       <p>See all results for "{value}"</p>

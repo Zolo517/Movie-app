@@ -1,12 +1,13 @@
 import { movieType } from "@/lib/type";
 import { Rating } from "./Rating";
+import { getImageUrl } from "@/lib/utils";
 
 export const MovieSearchCard = ({ movie }: { movie: movieType }) => {
   return (
     <div className="flex w-[553px] p-2 gap-4">
-      <img src="/wicked.jpg" alt="" className="w-[67px] h-[100px] " />
+      <img src={getImageUrl(movie.poster_path)} alt="" className="w-[67px] h-[100px] " />
       <div>
-        <h4>Wicked</h4>
+        <h4>{movie.title}</h4>
         <div className="flex gap-1 items-center">
           <svg
             className="text-[#FDE047] dark:text-white"
@@ -24,10 +25,10 @@ export const MovieSearchCard = ({ movie }: { movie: movieType }) => {
               strokeLinejoin="round"
             />
           </svg>
-          <Rating rating={12} large={"14px"} small={"12px"}></Rating>
+          <Rating rating={movie.vote_average} large={"14px"} small={"12px"}></Rating>
         </div>
         <div className="flex justify-between items-center">
-          <p className="text-[14px]">2024</p>
+          <p className="text-[14px]">{movie.release_date}</p>
           <button className="flex p-4 gap-2 items-center">
             <p className="text-[14px] font-medium">See more</p>
             <svg

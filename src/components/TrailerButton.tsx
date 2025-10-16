@@ -48,9 +48,11 @@ export const TraillerButton = ({ id }: { id: number }) => {
         </div>
       </DialogTrigger>
       <DialogContent>
-        {data?.splice(0, 1).map((data: dataType) => {
-          return <Trailer data={data} key={data.key} />;
-        })}
+        <div className={"w-full   h-150  "}>
+          {data?.splice(0, 1).map((data: dataType) => {
+            return <Trailer data={data} key={data.key} />;
+          })}
+        </div>
       </DialogContent>
     </Dialog>
   );

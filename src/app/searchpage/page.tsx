@@ -4,17 +4,30 @@ import { MovieGenres } from "../genresfilter/_features/MovieGenres";
 
 import { genresType, page3Props } from "@/lib/type";
 import { Results } from "./_components/Results";
+import useSWR from "swr";
 
-export const Page = async ({ searchParams }: page3Props) => {
-  const params = await searchParams;
-  const { genreId, genreName, page } = params;
-  const getGenreId = async () => {
-    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
-    return response.data.genres;
+export const Page = ({ searchParams }: page3Props) => {
+  // const params = await searchParams;
+  // const { genreId, genreName, page } = params;
+  // const getGenreId = async () => {
+  //   const response = await axiosInstance.get(`/genre/movie/list?language=en`);
+  //   return response.data.genres;
+  // };
+
+  // const genreid: genresType[] = await getGenreId();
+
+  const getSearchedMovies = async () => {
+    const res = await axiosInstance.get(
+      `/search/movie?query=${inputValue}&language=en-US&page=${1}`
+    );
+    return res.data;
   };
+  const { data, error, isLoading } = useSWR(
+    `/search/movie?query=${inputValue}&language=en-US&page=${1}`,
+    () => getSearchedMovies()
+  );
 
-  const genreid: genresType[] = await getGenreId();
-  console.log(genreid, "genriin id shhuuuu");
+  console.log("inputValue data", data);
 
   //search page link href /searchpage?value=${inputValue}
 

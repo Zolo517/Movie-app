@@ -1,20 +1,16 @@
 "use client";
 
 import { SectionTwo } from "@/components/SectionTwo";
+import { getSimilarMovies } from "@/lib/services";
 import { movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 import useSWR from "swr";
 
-export const ThirdPart = () => {
-  const fetchData = async () => {
-    const res = await axiosInstance.get(`/movie/popular?language=en-US&page=1`);
-    return res.data;
-  };
-
+export const ThirdPart = ({ id }: { id: string }) => {
   const { data, error, isLoading } = useSWR(
-    `/movie/popular?language=en-US&page=1`,
-    () => fetchData()
+    `/movie/${id}/similar?language=en-US&page=1`,
+    () => getSimilarMovies(id)
   );
   console.log("data chin bnooo");
   console.log(data);
@@ -57,7 +53,7 @@ export const ThirdPart = () => {
         imgH={"281px"}
         width={190}
         height={372}
-        movies={data.results}
+        movies={data}
       />
     </div>
   );

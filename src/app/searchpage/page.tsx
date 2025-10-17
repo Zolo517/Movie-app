@@ -5,8 +5,10 @@ import { MovieGenres } from "../genresfilter/_features/MovieGenres";
 import { genresType, page3Props } from "@/lib/type";
 import { Results } from "./_components/Results";
 import useSWR from "swr";
+import { getSearchedMovies } from "@/lib/services";
 
 export const Page = ({ searchParams }: page3Props) => {
+
   // const params = await searchParams;
   // const { genreId, genreName, page } = params;
   // const getGenreId = async () => {
@@ -16,29 +18,23 @@ export const Page = ({ searchParams }: page3Props) => {
 
   // const genreid: genresType[] = await getGenreId();
 
-  const getSearchedMovies = async () => {
-    const res = await axiosInstance.get(
-      `/search/movie?query=${inputValue}&language=en-US&page=${1}`
-    );
-    return res.data;
-  };
-  const { data, error, isLoading } = useSWR(
-    `/search/movie?query=${inputValue}&language=en-US&page=${1}`,
-    () => getSearchedMovies()
-  );
+  // const { data, error, isLoading } = useSWR(
+  //   `/search/movie?query=${inputValue}&language=en-US&page=${1}`,
+  //   () => getSearchedMovies(inputValue)
+  // );
 
-  console.log("inputValue data", data);
+  // console.log("inputValue data", data);
 
-  //search page link href /searchpage?value=${inputValue}
+  // //search page link href /searchpage?value=${inputValue}
 
-  return (
-    <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
-      <Header />
-      <div className="flex ">
-        <MovieGenres genres={genreid} />
-        <div className="border-[1px] mx-4"></div>
-        <Results />
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
+  //     <Header />
+  //     <div className="flex ">
+  //       <MovieGenres genres={genreid} />
+  //       <div className="border-[1px] mx-4"></div>
+  //       <Results />
+  //     </div>
+  //   </div>
+  // );
 };

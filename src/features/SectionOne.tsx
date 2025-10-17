@@ -14,18 +14,14 @@ import { MovieItem } from "@/components/MovieItem";
 import { axiosInstance } from "@/lib/utils";
 import useSWR from "swr";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getCarouselMovies } from "@/lib/services";
 
 export const SectionOne = () => {
-  const fetchData = async () => {
-    const res = await axiosInstance.get(
-      `/movie/now_playing?language=en-US&page=1`
-    );
-    return res.data;
-  };
+
 
   const { data, error, isLoading } = useSWR(
     `/movie/now_playing?language=en-US&page=1`,
-    () => fetchData()
+    () => getCarouselMovies()
   );
   console.log("data chin bish bnooo");
   console.log(data);

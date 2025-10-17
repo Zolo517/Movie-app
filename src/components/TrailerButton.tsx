@@ -14,12 +14,10 @@ import { axiosInstance } from "@/lib/utils";
 import useSWR from "swr";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { dataType } from "@/lib/type";
+import { getTrailer } from "@/lib/services";
 
 export const TraillerButton = ({ id }: { id: number }) => {
-  const getTrailer = async (id: number) => {
-    const res = await axiosInstance.get(`/movie/${id}/videos?language=en-US`);
-    return res.data.results;
-  };
+
   const { data, error, isLoading } = useSWR(
     `/movie/${id}/videos?language=en-US`,
     () => getTrailer(id)
@@ -48,7 +46,7 @@ export const TraillerButton = ({ id }: { id: number }) => {
         </div>
       </DialogTrigger>
       <DialogContent>
-        <div className={"w-full   h-150  "}>
+        <div className="w-full   h-150  ">
           {data?.splice(0, 1).map((data: dataType) => {
             return <Trailer data={data} key={data.key} />;
           })}

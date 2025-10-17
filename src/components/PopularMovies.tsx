@@ -3,16 +3,12 @@ import { SectionTwo } from "./SectionTwo";
 import useSWR from "swr";
 import { axiosInstance } from "@/lib/utils";
 import { Section } from "./skeleton/Section";
+import { getPopularMovies } from "@/lib/services";
 
 export const PopularMovies = ({ text }: { text: string }) => {
-  const fetchData = async () => {
-    const res = await axiosInstance.get(`/movie/popular?language=en-US&page=1`);
-    return res.data;
-  };
-
   const { data, error, isLoading } = useSWR(
     `/movie/popular?language=en-US&page=1`,
-    () => fetchData()
+    () => getPopularMovies()
   );
   console.log("data chin bnooo");
   console.log(data);
@@ -59,7 +55,7 @@ export const PopularMovies = ({ text }: { text: string }) => {
         imgH={"340px"}
         width={230}
         height={439}
-        movies={data.results}
+        movies={data}
       />
     </div>
   );

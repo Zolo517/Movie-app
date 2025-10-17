@@ -5,6 +5,7 @@ import { Rating } from "@/components/Rating";
 
 import { getImageUrl } from "@/lib/utils";
 import { TraillerButton } from "@/components/TrailerButton";
+import { Buttons } from "../_components/Buttons";
 
 export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
   console.log(movieInfo.genres, "ssss");
@@ -64,6 +65,10 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
         >
           <TraillerButton id={movieInfo.id} />
         </div>
+      </div>
+      <div className="flex flex-col gap-5">
+        <Buttons genres={movieInfo.genres}></Buttons>
+        <p className="text-base">{movieInfo.overview}</p>
       </div>
     </div>
   );

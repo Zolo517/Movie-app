@@ -37,9 +37,9 @@ export default async function Page({ params }: idType) {
 
   return (
     <div className="px-45 pt-13 pb-[113px]">
-      <FirstPart movieInfo={movieDetail}></FirstPart>
-      <SecondPart movie={movieDetail} info={creditsInfo}></SecondPart>
-      <ThirdPart></ThirdPart>
+      <FirstPart movieInfo={movieDetail} />
+      <SecondPart info={creditsInfo} />
+      <ThirdPart id={id} />
     </div>
   );
 }

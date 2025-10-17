@@ -3,18 +3,12 @@ import Link from "next/link";
 import useSWR from "swr";
 import { SectionTwo } from "./SectionTwo";
 import { Section } from "./skeleton/Section";
+import { getUpcomingMovies,  } from "@/lib/services";
 
 export const UpcomingMovies = ({ text }: { text: string }) => {
-  const fetchData = async () => {
-    const res = await axiosInstance.get(
-      `/movie/upcoming?language=en-US&page=1`
-    );
-    return res.data;
-  };
-
   const { data, error, isLoading } = useSWR(
     `/movie/upcoming?language=en-US&page=1`,
-    () => fetchData()
+    () => getUpcomingMovies()
   );
   console.log("data chin bnooo");
   console.log(data);
@@ -57,7 +51,7 @@ export const UpcomingMovies = ({ text }: { text: string }) => {
         imgH={"340px"}
         width={230}
         height={439}
-        movies={data.results}
+        movies={data}
       />
     </div>
   );

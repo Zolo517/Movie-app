@@ -11,23 +11,20 @@ import { axiosInstance } from "@/lib/utils";
 import useSWR from "swr";
 import { movieType } from "@/lib/type";
 
-export const MovieSearchContents = ({ value }: { value: string }) => {
-  const fetchData = async () => {
-    const res = await axiosInstance.get(
-      `/search/movie?query=${value}&language=en-US&page=${1}`
-    );
-    return res.data;
-  };
-  const { data, error, isLoading } = useSWR(
-    `/search/movie?query=${value}&language=en-US&page=${1}`,
-    () => fetchData()
-  );
-
-
+export const MovieSearchContents = ({
+  data,
+  value,
+  text,
+}: {
+  data: any;
+  value: string;
+  text?: any;
+}) => {
   return (
     <div className="p-3">
-      {datas.title.includes(value) &&
-        datas?.map((movie: movieType) => {
+      {data &&
+        // data.title?.includes(value) &&
+        data?.splice(0, 5).map((movie: movieType) => {
           return <MovieSearchCard movie={movie} />;
         })}
       <div className="border-[0.5px] border-[#E4E4E7] my-2"></div>

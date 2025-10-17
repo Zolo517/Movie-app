@@ -1,12 +1,5 @@
 "use client";
-import {
-  DropdownMenuTrigger,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-} from "./ui/dropdown-menu";
+
 import { MovieSearchCard } from "./MovieSearchCard";
 import { Input } from "./ui/input";
 import { MovieSearchContents } from "./MovieSearchContents";
@@ -25,6 +18,13 @@ export const MovieSearchBar = () => {
     `/search/movie?query=${inputValue}&language=en-US&page=${1}`,
     () => getSearchedMovies(inputValue)
   );
+  if(error){
+   return  <div>"Something went wrong"</div>
+  }
+  if(isLoading){
+    return <div className="w-[379px]"></div>
+  }
+
 
   return (
     <div>
@@ -42,7 +42,7 @@ export const MovieSearchBar = () => {
       {inputValue.length === 0 ? (
         ""
       ) : (
-        <MovieSearchContents value={inputValue} data={data} />
+        <MovieSearchContents value={inputValue} data={data} error={error} isLoading={isLoading}/>
       )}
     </div>
   );

@@ -15,7 +15,9 @@ export const MovieSearchContents = ({
   data,
   value,
   text,
+  isLoading
 }: {
+  isLoading:any
   data: any;
   value: string;
   text?: any;

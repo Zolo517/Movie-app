@@ -20,7 +20,7 @@ export const MovieSearchBar = () => {
     () => getSearchedMovies(inputValue)
   );
   const handleOnChange= (e:any)=>setInputValue(e.target.value)
-const debouncedFunction = __.debounce(handleOnChange, 1000)
+const debouncedFunction = _.debounce(handleOnChange, 1000)
 
 
   if (error) {

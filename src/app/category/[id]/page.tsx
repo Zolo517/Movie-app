@@ -3,21 +3,14 @@ import { SectionTwo } from "@/components/SectionTwo";
 import { idType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import { CategoryMovies } from "./_components/CategoryMovies";
+import { getMoviesByCategory } from "@/lib/services";
 
 export default async function HomePage({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const getMovies = async (id: string) => {
-    const response = await axiosInstance.get(
-      `/movie/${id}?language=en-US&page=1`
-    );
-
-    return response.data;
-  };
-
-  const movieDatas = await getMovies(id);
+  const movieDatas = await getMoviesByCategory(id);
   console.log(movieDatas, "datadatadata");
   let title = "";
   if (id === "popular") {
@@ -30,7 +23,7 @@ export default async function HomePage({
 
   return (
     <div className="px-20 mt-13">
-      <CategoryMovies movies={movieDatas} title={title} />
+      <CategoryMovies movies={movieDatas.results} title={title} />
       {/* <Pagi /> */}
     </div>
   );

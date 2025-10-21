@@ -9,11 +9,8 @@ import useSWR from "swr";
 export const Trailer = ({ data }: { data: dataType }) => {
   const { key } = data;
   return (
-    <div className="w-full h-full">
-      <ReactPlayer
-        className="w-150"
-        src={`https://www.youtube.com/watch?v=${key}`}
-      />
+    <div className="w-150 h-150">
+      <ReactPlayer src={`https://www.youtube.com/watch?v=${key}`} />
     </div>
   );
 };

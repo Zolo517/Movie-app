@@ -1,5 +1,6 @@
 "use client";
 
+import lodash from "lodash"
 import { MovieSearchCard } from "./MovieSearchCard";
 import { Input } from "./ui/input";
 import { MovieSearchContents } from "./MovieSearchContents";
@@ -18,16 +19,19 @@ export const MovieSearchBar = () => {
     `/search/movie?query=${inputValue}&language=en-US&page=${1}`,
     () => getSearchedMovies(inputValue)
   );
-  if(error){
-   return  <div>"Something went wrong"</div>
-  }
-  if(isLoading){
-    return <div className="w-[379px]"></div>
-  }
+  const handleOnChange= (e:any)=>setInputValue(e.target.value)
+const debouncedFunction = __.debounce(handleOnChange, 1000)
 
+
+  if (error) {
+    return <div>"Something went wrong"</div>;
+  }
+  if (isLoading) {
+    return <div className="w-[379px]"></div>;
+  }
 
   return (
-    <div>
+    <Popover>
       <InputGroup className="w-[379px]">
         <InputGroupInput
           value={inputValue}
@@ -39,11 +43,18 @@ export const MovieSearchBar = () => {
         </InputGroupAddon>
       </InputGroup>
 
-      {inputValue.length === 0 ? (
-        ""
-      ) : (
-        <MovieSearchContents value={inputValue} data={data} error={error} isLoading={isLoading}/>
-      )}
-    </div>
+      <PopoverContent>
+        {inputValue.length === 0 ? (
+          ""
+        ) : (
+          <MovieSearchContents
+            value={inputValue}
+            data={data}
+            error={error}
+            isLoading={isLoading}
+          />
+        )}
+      </PopoverContent>
+    </Popover>
   );
 };

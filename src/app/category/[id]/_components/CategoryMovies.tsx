@@ -16,14 +16,16 @@ export const CategoryMovies = ({
       </div>
 
       <div className="flex flex-wrap gap-8 mt-8">
-        {movies?.splice(0, 1).map((movie, index) => {
+        {movies&&movies?.splice(0, 10).map((movie, index) => {
           return (
             <MovieCard
               img={"340px"}
               w={230}
               h={439}
               key={index + Math.random()}
-              movie={movie} h3={""}            />
+              movie={movie}
+              h3={""}
+            />
           );
         })}
       </div>

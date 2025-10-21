@@ -31,7 +31,13 @@ export const getSearchedMovies = async (inputValue: string) => {
   );
   return res.data.results;
 };
- export const getSimilarMovies = async (id:string) => {
-    const res = await axiosInstance.get(`/movie/${id}/similar?language=en-US&page=1`);
-    return res.data.results;
-  };
+export const getSimilarMovies = async (id: string) => {
+  const res = await axiosInstance.get(
+    `/movie/${id}/similar?language=en-US&page=1`
+  );
+  return res.data.results;
+};
+export const getMoviesByCategory = async (id: string) => {
+  const res = await axiosInstance.get(`/movie/${id}?language=en-US&page=1`);
+  return res.data;
+};

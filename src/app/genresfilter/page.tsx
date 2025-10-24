@@ -4,39 +4,21 @@ import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 import { Header } from "./_features/Header";
 import { MovieGenres } from "./_features/MovieGenres";
+import useSWR from "swr";
+import { getFilteredMovies } from "@/lib/services";
+import { use, useState } from "react";
 
-export default async function Page3({ searchParams }: page3Props) {
-  const params = await searchParams;
-  const { genreId, genreName, page } = params;
-  const getGenreId = async () => {
-    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
-    return response.data.genres;
-  };
-
-  const genreid: genresType[] = await getGenreId();
-  console.log(genreId, "genriin id shhuuuu");
-
-  const getFilteredMovies = async () => {
-    const response = await axiosInstance.get(
-      `/discover/movie?language=en&with_genres=${genreId}&page=${1}`
-    );
-    return response.data;
-  };
-
-  const filteredMovies = await getFilteredMovies();
-  console.log(filteredMovies, "filtered");
+export default function Page3({ searchParams }: any) {
+  const { genres, genreName }: { genres: string; genreName: string } =
+    use(searchParams);
 
   return (
     <div className="px-20 pt-13 pb-8 flex flex-col gap-8">
       <Header />
       <div className="flex ">
-        <MovieGenres genres={genreid} />
+        <MovieGenres genres={genres} />
         <div className="border-[1px] mx-8"></div>
-        <FilteredMovies
-          genreId={genreId}
-          filters={filteredMovies}
-          genreName={genreName}
-        />
+        <FilteredMovies genres={genres} genreName={genreName} />
       </div>
     </div>
   );

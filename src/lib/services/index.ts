@@ -41,3 +41,11 @@ export const getMoviesByCategory = async (id: string) => {
   const res = await axiosInstance.get(`/movie/${id}?language=en-US&page=1`);
   return res.data;
 };
+export const getGenres = async ()=>{
+  const res = await axiosInstance.get(`/genre/movie/list?language=en`)
+  return res.data.genres
+}
+export const getFilteredMovies = async(page: number, genreIds: string)=>{
+  const res = await axiosInstance.get(`/discover/movie?language=en&with_genres=${genreIds}&page=${page}`)
+  res.data
+}

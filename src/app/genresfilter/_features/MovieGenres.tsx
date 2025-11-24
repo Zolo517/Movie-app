@@ -1,3 +1,5 @@
+"use client";
+
 import { getGenres } from "@/lib/services";
 import { genresType } from "@/lib/type";
 import Link from "next/link";
@@ -24,7 +26,7 @@ export const MovieGenres = ({ genres }: { genres: string }) => {
           data.map(({ name, id }: { name: string; id: string }) => {
             return (
               <div
-                onClick={() =>
+                onClick={(): void =>
                   router.push(`${path}?genres=${genres},${id}`, {})
                 }
                 key={id}

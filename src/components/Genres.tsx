@@ -1,3 +1,5 @@
+"use client";
+
 import { genresType } from "@/lib/type";
 import {
   DropdownMenuTrigger,
@@ -10,14 +12,22 @@ import {
 import { axiosInstance } from "@/lib/utils";
 import Link from "next/link";
 
-export async function Genres() {
-  const getGenreId = async () => {
-    const response = await axiosInstance.get(`/genre/movie/list?language=en`);
-    return response.data.genres;
-  };
+import { useState } from "react";
+import useSWR from "swr";
+import { getGenres } from "@/lib/services";
+import { useRouter } from "next/navigation";
 
-  const genreId = await getGenreId();
-  console.log(genreId, "genriin id shhuuuu");
+export function Genres() {
+  const router = useRouter();
+  const [inputValue, setInputValue] = useState("");
+  const { data, error, isLoading } = useSWR(
+    `/genre/movie/list?language=en`,
+    getGenres
+  );
+
+  const goToGenres = (id: number) => {
+    router.push(`/genresfilter?genres=${id}`);
+  };
 
   return (
     <DropdownMenu>
@@ -50,15 +60,13 @@ export async function Genres() {
 
         <div className="w-full my-[10px] border-[0.5px] "></div>
         <DropdownMenuGroup className="flex flex-wrap  gap-3 ">
-          {genreId.map((genre: genresType, index: number) => {
-            return (
-              <Link
-                href={`/genresfilter?genreId=${genre.id}&genreName=${genre.name}&page=`}
-                key={index + Math.random()}
-              >
+          {data &&
+            data.map((genre: genresType, index: number) => {
+              return (
                 <DropdownMenuItem
                   className="rounded-2xl  border-[0.1px]  justify-center items-center gap-1 text-[12px] font-semibold flex  "
                   key={index + Math.random()}
+                  onClick={() => goToGenres(genre.id)}
                 >
                   <div className="justify-center items-center gap-1 text-[12px] font-semibold flex ">
                     <p>{genre.name}</p>
@@ -79,9 +87,8 @@ export async function Genres() {
                     </svg>
                   </div>
                 </DropdownMenuItem>
-              </Link>
-            );
-          })}
+              );
+            })}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

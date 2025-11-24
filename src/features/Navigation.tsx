@@ -11,17 +11,20 @@ import { Logo } from "@/components/Logo";
 import { Genres } from "@/components/Genres";
 import { MovieSearchBar } from "@/components/MovieSearchBar";
 import { Theme } from "@/components/Theme";
+import Link from "next/link";
+import Test from "@/components/Test";
 
 export const Navigation = () => {
   return (
     <div className="px-20 py-[11.5px] sticky top-0 bg-white dark:bg-[#020618]">
       <div className="flex justify-between items-center h-9 ">
-        <a href="http://localhost:3000/">
+        <Link href="/">
           <Logo color="#4338CA" />
-        </a>
+        </Link>
         <div className="flex gap-3">
           <Genres />
-          <MovieSearchBar/>
+          <MovieSearchBar />
+          {/* <Test /> */}
         </div>
         <Theme></Theme>
       </div>

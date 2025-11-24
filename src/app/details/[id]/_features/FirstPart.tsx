@@ -61,9 +61,9 @@ export const FirstPart = ({ movieInfo }: { movieInfo: movieType }) => {
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path})`,
           }}
-          className="bg-cover h-[428px] w-full  bg-center  flex items-center text-[#FFF]"
+          className="bg-cover h-[428px] w-full  bg-center  flex items-end text-[#FFF]"
         >
-          <TraillerButton id={movieInfo.id} />
+          <TraillerButton p="Play" id={movieInfo.id} />
         </div>
       </div>
       <div className="flex flex-col gap-5">

@@ -38,7 +38,7 @@ export const MovieSearchCard = ({ movie }: { movie: movieType }) => {
         </div>
         <div className="flex justify-between items-center">
           <p className="text-[14px]">{movie.release_date}</p>
-          <Link href={`/detail/${movie.id}`}>
+          <Link href={`/details/${movie.id}`}>
             <button className="flex p-4 gap-2 items-center">
               <p className="text-[14px] font-medium">See more</p>
               <svg
@@ -50,7 +50,7 @@ export const MovieSearchCard = ({ movie }: { movie: movieType }) => {
               >
                 <path
                   d="M1.33301 5.99998H10.6663M10.6663 5.99998L5.99967 1.33331M10.6663 5.99998L5.99967 10.6666"
-                  stroke="#18181B"
+                  stroke="#FFF"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />

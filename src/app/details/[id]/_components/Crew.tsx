@@ -26,7 +26,7 @@ export const Crew = ({
               })
             : ""}
           {h4 === "Director"
-            ? director?.map((d, index) => (
+            ? director?.splice(0, 3).map((d, index) => (
                 <p key={index + Math.random()} className="text-base">
                   {d.name}
                 </p>

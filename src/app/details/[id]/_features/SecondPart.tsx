@@ -9,7 +9,7 @@ export const SecondPart = ({ info }: { info: creditsType }) => {
   const writer = crew.filter((c) => c.department.includes("Writing"));
 
   return (
-    <div className="gap-1">
+    <div className="gap-1 mt-5">
       <Crew h4={"Director"} director={director}></Crew>
       <Crew h4={"Writers"} writer={writer}></Crew>
       <Crew h4={"Stars"} cast={cast}></Crew>

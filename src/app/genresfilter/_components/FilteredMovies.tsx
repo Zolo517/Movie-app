@@ -1,3 +1,5 @@
+"use client";
+
 import { filtersType, genresType, movieType } from "@/lib/type";
 import { axiosInstance } from "@/lib/utils";
 import { Pagi } from "./Pagi";
@@ -6,27 +8,15 @@ import { useState } from "react";
 import useSWR from "swr";
 import { getFilteredMovies } from "@/lib/services";
 
-export const FilteredMovies = async ({
-  genres,
-  genreName,
-}: {
-  genreName?: string;
-  genres: string;
-}) => {
-  const [pages, setPages] = useState(1);
-  const { data, error, isLoading } = useSWR(
-    `/discover/movie?language=en&with_genres=${genres}&page=${pages}`,
-    () => getFilteredMovies(pages, genres)
-  );
-
+export const FilteredMovies = ({ data }: { data: any }) => {
   return (
     <div>
       <h4 className="text-[20px] font-semibold mb-8">
-        {data} titles in "{genreName}"
+        {data} titles in "{data}"
       </h4>
       <div className="flex flex-wrap gap-8">
-        {results &&
-          results?.splice(0, 12).map((movie: movieType, index: number) => {
+        {/* {data.results &&
+          data.results?.splice(0, 12).map((movie: movieType, index: number) => {
             return (
               <MovieCard
                 img={"244px"}
@@ -37,9 +27,9 @@ export const FilteredMovies = async ({
                 movie={movie}
               />
             );
-          })}
+          })} */}
       </div>
-      <Pagi total_pages={total_pages} />
+      {/* <Pagi total_pages={data.total_pages} /> */}
     </div>
   );
 };

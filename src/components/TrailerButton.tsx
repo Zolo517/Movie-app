@@ -15,9 +15,9 @@ import useSWR from "swr";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { dataType } from "@/lib/type";
 import { getTrailer } from "@/lib/services";
+import { PlayButton } from "@/icons/PlayButton";
 
-export const TraillerButton = ({ id }: { id: number }) => {
-
+export const TraillerButton = ({ id, p }: {p:string, id: number }) => {
   const { data, error, isLoading } = useSWR(
     `/movie/${id}/videos?language=en-US`,
     () => getTrailer(id)
@@ -26,31 +26,15 @@ export const TraillerButton = ({ id }: { id: number }) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <div className="flex gap-2 py-2 px-4 ">
-          <svg
-            className=" dark:text-black"
-            xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="14"
-            viewBox="0 0 12 14"
-            fill="none"
-          >
-            <path
-              d="M1.33301 1L10.6663 7L1.33301 13V1Z"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <p>Watch Trailer</p>
+        <div className="flex gap-2 py-2 px-4 items-center">
+          <PlayButton />
+          <p className="text-base ">{p} Trailer</p>
         </div>
       </DialogTrigger>
-      <DialogContent>
-        <div className="w-full   h-150  ">
-          {data?.splice(0, 1).map((data: dataType) => {
-            return <Trailer data={data} key={data.key} />;
-          })}
-        </div>
+      <DialogContent className="sm:max-w-[70%] sm:max-h-[30%]">
+        {data?.splice(0, 1).map((data: dataType) => {
+          return <Trailer data={data} key={data.key} />;
+        })}
       </DialogContent>
     </Dialog>
   );
